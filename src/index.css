@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-bg-dark: #05050a;
+  --color-bg-light: #f8f9fa;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-blue: #3b82f6;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg-dark text-white antialiased selection:bg-accent-purple/30;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  html.light body {
+    @apply bg-bg-light text-slate-900;
+  }
+
+  [dir="rtl"] {
+    font-family: 'Inter', sans-serif; /* You might want a specific Arabic font later */
+  }
+}
+
+.light .glass-card {
+  @apply bg-white/80 border-black/5 shadow-lg;
+}
+
+.light .text-white {
+  @apply text-slate-900;
+}
+
+.light .text-white\/60 {
+  @apply text-slate-700;
+}
+
+.light .text-white\/80 {
+  @apply text-slate-800;
+}
+
+.light .text-white\/70 {
+  @apply text-slate-700;
+}
+
+.light .text-white\/50 {
+  @apply text-slate-600;
+}
+
+.light .text-white\/40 {
+  @apply text-slate-600;
+}
+
+.light .text-white\/30 {
+  @apply text-slate-500;
+}
+
+.light .text-white\/20 {
+  @apply text-slate-500;
+}
+
+.light .bg-\[\#0a0a1a\]\/80 {
+  @apply bg-white/80;
+}
+
+.light .bg-\[\#0a0a1a\] {
+  @apply bg-white;
+}
+
+.light .border-white\/10 {
+  @apply border-black/10;
+}
+
+.light .border-white\/5 {
+  @apply border-black/5;
+}
+
+.light .bg-white\/5 {
+  @apply bg-slate-100;
+}
+
+.light .bg-white\/10 {
+  @apply bg-slate-200;
+}
+
+.custom-cursor {
+  @apply fixed top-0 left-0 w-8 h-8 border border-accent-purple rounded-full pointer-events-none z-[9999] mix-blend-difference;
+  transition: transform 0.1s ease-out;
+}
+
+.custom-cursor-dot {
+  @apply fixed top-0 left-0 w-1.5 h-1.5 bg-accent-purple rounded-full pointer-events-none z-[9999] mix-blend-difference;
+}
+
+.glass-card {
+  @apply bg-[#0a0a12] border border-white/5 backdrop-blur-md;
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.glow-mixed {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15), 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+.text-gradient-purple {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-purple to-purple-400;
+}
+
+.text-gradient-mixed {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-purple to-accent-blue;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.2);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.4);
+}
+
+.nav-link-active {
+  @apply text-accent-purple bg-accent-purple/10 px-3 py-1 rounded-md;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #05070a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1d23;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2e35;
+}
+/* Project Section */
+
