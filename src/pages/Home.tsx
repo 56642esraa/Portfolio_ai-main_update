@@ -1,7 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { MdEmail } from 'react-icons/md';
-import { FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa';
-import '../images/trip.png'
+import {
+  FaWhatsapp,
+  FaGithub,
+  FaLinkedin,
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaSass,
+  FaBootstrap,
+
+} from 'react-icons/fa';
+
+// React Icons imports
+
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiRedux,
+  SiTailwindcss,
+  SiJquery,
+  SiNodedotjs,
+  SiMongodb,
+  SiAuth0,
+  SiPostman,
+  SiCodeigniter,
+  SiRedis,
+  SiDocker,
+  SiServerless,
+  SiPhp,
+  SiSwagger
+} from 'react-icons/si';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
@@ -16,7 +46,7 @@ import {
   Linkedin,
   Mail,
   Phone,
-
+  BookOpen,
   ChevronRight,
   Code2,
   Globe,
@@ -64,9 +94,16 @@ import {
   Play,
   Calendar,
   GraduationCap,
- 
+
   FileBadge,
   MapPin,
+  Trophy,
+  Brain,
+  Briefcase,
+  User,
+  DollarSign,
+
+
 
 
 
@@ -89,7 +126,7 @@ const Home = () => {
   >(null);
 
   // Add near other useState declarations in Home component
-const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>('education');
+  const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>('education');
 
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -125,7 +162,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
 
   // Experience Section
   const experiences = language === 'en' ? [
-   
+
     {
       period: "Jan '26 - Present",
       title: "Fullstack Web Developer Intern",
@@ -142,9 +179,9 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
       action: "Optimized WordPress architectures, implemented on-page SEO strategies, and applied Software Engineering principles.",
       result: "Successfully launched a production-ready traveling website with multi-currency/language support."
     },
-   
+
   ] : [
-    
+
     {
       period: "يناير 26 - حتى الآن",
       title: "متدرب مطور ويب كامل",
@@ -161,8 +198,8 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
       action: "حسنت معمارية ووردبريس ونفذت استراتيجيات SEO.",
       result: "أطلقت بنجاح موقع سفر مع دعم عملات ولغات متعددة."
     },
-    
-    
+
+
   ];
 
   const testimonials = language === 'en' ? [
@@ -265,7 +302,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
       rating: 4,
       initials: "عم"
     },
-   
+
   ];
 
   const projects =
@@ -289,7 +326,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
             "35% Faster Navigation: Streamlined category paths allowed users to reach product details in fewer clicks. Enhanced UX Clarity: High-contrast CTA buttons (Orange/Black) significantly improved the visual 'Add to Cart' flow. Backend Stability: Optimized WordPress server-side configurations to handle concurrent sessions during peak sales. Professional Presence: Elevated the digital brand to match the quality of premium partners like Victorinox and Cambro.",
           techStack:
             "CMS & E-commerce: WordPress, WooCommerce | Frontend: JavaScript (ES6+), CSS Grid/Flexbox, HTML5 | Design Tools: Figma | Deployment: Managed WordPress Hosting",
-          image: "/src/images/hut (1).png",
+          image: "/images/hut (1).png",
           tags: ["WordPress", "WooCommerce", "PHP", "Tailwind CSS"],
           technologies: [
             "WordPress",
@@ -315,7 +352,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
           category: "Full-Stack",
           description:
             "A high-performance, large-scale traveling platform with real-time data synchronization and complex filtering.",
-          image: "/src/images/trip.png",
+          image: "/images/trip.png",
           tags: ["React", "Node.js", "MongoDB", "Redux"],
           technologies: [
             "React",
@@ -337,7 +374,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
           category: "Backend",
           description:
             "Scalable e-commerce backend built with Node.js and TypeScript. Implemented robust REST APIs for product catalog and orders.",
-          image: "/src/images/e-commerce.png",
+          image: "/images/e-commerce.png",
           tags: ["Node.js", "TypeScript", "MongoDB"],
           technologies: [
             "Node.js",
@@ -360,7 +397,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
           category: "Full-Stack",
           description:
             "منصة تجارة إلكترونية متميزة لمعدات ومستلزمات المطابخ في الإمارات العربية المتحدة، تتميز بكتالوج عالي الأداء وعملية دفع سلسة.",
-          image: "https://picsum.photos/seed/horeca/800/600",
+          image: "/images/hut (1).png",
           tags: ["WordPress", "WooCommerce", "PHP", "Tailwind CSS"],
           technologies: [
             "WordPress",
@@ -382,7 +419,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
           category: "Full-Stack",
           description:
             "منصة سفر واسعة النطاق وعالية الأداء مع مزامنة البيانات في الوقت الفعلي وتصفية معقدة.",
-          image: "https://picsum.photos/seed/travel/800/600",
+          image: "/images/trip.png",
           tags: ["React", "Node.js", "MongoDB", "Redux"],
           technologies: [
             "React",
@@ -404,7 +441,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
           category: "Backend",
           description:
             "خلفية تجارة إلكترونية قابلة للتوسع مبنية باستخدام Node.js و TypeScript. تنفيذ واجهات برمجة تطبيقات REST قوية لكتالوج المنتجات والطلبات.",
-          image: "https://picsum.photos/seed/ecommerce/800/600",
+          image: "/images/e-commerce.png",
           tags: ["Node.js", "TypeScript", "MongoDB"],
           technologies: [
             "Node.js",
@@ -436,7 +473,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
           year: "2025",
           desc: "Intensive internship focusing on Software Development, Huawei Academy tracks, AI, Big Data, and Cloud Computing.",
         },
-        
+
         {
           title: "WordPress Developer",
           institution: "Information Technology Institute (ITI)",
@@ -457,7 +494,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
           year: "2025",
           desc: "تدريب مكثف يركز على تطوير البرمجيات، مسارات أكاديمية هواوي، الذكاء الاصطناعي، البيانات الضخمة، والحوسبة السحابية.",
         },
-        
+
         {
           title: "إتقان ووردبريس",
           institution: "معهد تكنولوجيا المعلومات (ITI)",
@@ -466,69 +503,69 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
         },
       ];
 
-      const certifications = language === 'en' ? [
-        { 
-          name: "Full-Stack Web Development", 
-          date: "2026", 
-          issuer: "DEPI Initiative",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
-        },
-        { 
-          name: "HCIA-Big Data", 
-          date: "Dec '24", 
-          issuer: "Huawei",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem" // Big Data folder
-        },
-        { 
-          name: "HCIA-AI", 
-          date: "Jan '24", 
-          issuer: "Huawei",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem" // AI folder
-        },
-        { 
-          name: "HCIA-Cloud Computing", 
-          date: "Jan '23", 
-          issuer: "Huawei",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
-        }, 
-        { 
-          name: "WordPress Developer", 
-          date: "2025", 
-          issuer: "ITI",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
-        }
-      ] : [
-        { 
-          name: "تطوير الويب الكامل", 
-          date: "2026", 
-          issuer: "DIGILIANS",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
-        },
-        { 
-          name: "HCIA-البيانات الضخمة", 
-          date: "ديسمبر 24", 
-          issuer: "هواوي",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
-        },
-        { 
-          name: "HCIA-الذكاء الاصطناعي", 
-          date: "يناير 24", 
-          issuer: "هواوي",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
-        },
-        { 
-          name: "HCIA-الحوسبة السحابية", 
-          date: "يناير 23", 
-          issuer: "هواوي",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
-        },
-        { 
-          name: "تطوير ووردبريس", 
-          date: "2025", 
-          issuer: "ITI",
-          link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
-        }
-      ];
+  const certifications = language === 'en' ? [
+    {
+      name: "Full-Stack Web Development",
+      date: "2026",
+      issuer: "DEPI Initiative",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
+    },
+    {
+      name: "HCIA-Big Data",
+      date: "Dec '24",
+      issuer: "Huawei",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem" // Big Data folder
+    },
+    {
+      name: "HCIA-AI",
+      date: "Jan '24",
+      issuer: "Huawei",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem" // AI folder
+    },
+    {
+      name: "HCIA-Cloud Computing",
+      date: "Jan '23",
+      issuer: "Huawei",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
+    },
+    {
+      name: "WordPress Developer",
+      date: "2025",
+      issuer: "ITI",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
+    }
+  ] : [
+    {
+      name: "تطوير الويب الكامل",
+      date: "2026",
+      issuer: "DIGILIANS",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
+    },
+    {
+      name: "HCIA-البيانات الضخمة",
+      date: "ديسمبر 24",
+      issuer: "هواوي",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
+    },
+    {
+      name: "HCIA-الذكاء الاصطناعي",
+      date: "يناير 24",
+      issuer: "هواوي",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
+    },
+    {
+      name: "HCIA-الحوسبة السحابية",
+      date: "يناير 23",
+      issuer: "هواوي",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
+    },
+    {
+      name: "تطوير ووردبريس",
+      date: "2025",
+      issuer: "ITI",
+      link: "https://drive.google.com/drive/folders/1V-6yBYGZHF1pC-wr_LfBqSN0wqoTRzem"
+    }
+  ];
 
   const filteredProjects =
     activeProjectTab === "All"
@@ -1506,147 +1543,284 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
       </div>
 
       {/* About Section */}
+
       <section id="about" className="py-32 px-6 bg-white/5">
         <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            title={t("aboutTitle")}
-            subtitle={t("aboutSubtitle")}
-          />
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-white/60 leading-relaxed text-lg mb-8">
-                {t("aboutMeDesc")}
-              </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="glass-card p-6 rounded-2xl">
-                  <h4 className="text-accent-purple font-bold text-3xl mb-1">
-                    2+
-                  </h4>
-                  <p className="text-white/40 text-xs uppercase tracking-widest">
-                    {t("yearsExp")}
-                  </p>
-                </div>
-                <div className="glass-card p-6 rounded-2xl">
-                  <h4 className="text-accent-purple font-bold text-3xl mb-1">
-                    10+
-                  </h4>
-                  <p className="text-white/40 text-xs uppercase tracking-widest">
-                    {t("projectsDone")}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative flex flex-wrap justify-center gap-4 content-center min-h-[400px]"
-            >
-              {[
-                { name: "React", size: "text-4xl", color: "text-blue-400" },
-                {
-                  name: "Full-Stack",
-                  size: "text-5xl",
-                  color: "text-accent-purple",
-                },
-                {
-                  name: "Node.js",
-                  size: "text-3xl",
-                  color: "text-emerald-400",
-                },
-                { name: "WordPress", size: "text-4xl", color: "text-blue-500" },
-                { name: "Backend", size: "text-3xl", color: "text-purple-400" },
-                {
-                  name: "Cloud Computing",
-                  size: "text-2xl",
-                  color: "text-blue-300",
-                },
-                { name: "AI", size: "text-5xl", color: "text-white" },
-                {
-                  name: "Big Data",
-                  size: "text-3xl",
-                  color: "text-orange-400",
-                },
-                {
-                  name: "MERN Stack",
-                  size: "text-4xl",
-                  color: "text-accent-purple",
-                },
-                {
-                  name: "Huawei Academy",
-                  size: "text-2xl",
-                  color: "text-red-400",
-                },
-                {
-                  name: "ITI Internship",
-                  size: "text-3xl",
-                  color: "text-blue-300",
-                },
-                {
-                  name: "Scalable Solutions",
-                  size: "text-2xl",
-                  color: "text-emerald-300",
-                },
-                {
-                  name: "Real-time Data",
-                  size: "text-3xl",
-                  color: "text-yellow-400",
-                },
-                {
-                  name: "API Integration",
-                  size: "text-2xl",
-                  color: "text-purple-300",
-                },
-              ].map((tag, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: i * 0.05,
-                    type: "spring",
-                    stiffness: 100,
-                  }}
-                  whileHover={{ scale: 1.1, rotate: i % 2 === 0 ? 5 : -5 }}
-                  className={`${tag.size} font-black uppercase tracking-tighter ${tag.color} cursor-default select-none hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all`}
-                >
-                  {tag.name}
-                </motion.span>
-              ))}
+          {/* Logo */}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center border border-accent-purple/30 shadow-lg">
+              <User size={40} className="text-accent-purple" />
+            </div>
+          </motion.div>
 
-              {/* Decorative background glow */}
-              <div className="absolute inset-0 bg-accent-purple/5 blur-[100px] -z-10 rounded-full" />
-            </motion.div>
+          <SectionHeading title={t("aboutTitle")} subtitle={t("aboutSubtitle")} />
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Left Side - About Text Cards */}
+            <div className="space-y-6">
+              {/* Who I Am Card */}
+              <motion.div
+                initial={{ opacity: 0, x: language === 'ar' ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <User size={20} className="text-accent-purple" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
+                    {language === 'ar' ? 'من أنا' : 'Who I Am'}
+                  </h3>
+                </div>
+                <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors">
+                  {language === 'ar'
+                    ? 'أنا إسراء علي، مطورة تؤمن بامتلاك دورة حياة المنتج بالكامل. أتخصص في تطوير الويب الكامل، حيث أقوم ببناء واجهات متجاوبة تعتمد على المكونات في React وأربطها بحلول خلفية قابلة للتوسع (بما في ذلك WordPress).'
+                    : "I'm Esraa Ali, a developer who believes in owning the entire lifecycle of a product. I specialize in Full-Stack Web Development, where I architect responsive, component-driven interfaces in React and pair them with scalable backend solutions (including WordPress)."}
+                </p>
+              </motion.div>
+
+              {/* My Approach Card */}
+              <motion.div
+                initial={{ opacity: 0, x: language === 'ar' ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Target size={20} className="text-accent-purple" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
+                    {language === 'ar' ? 'نهجي في العمل' : 'My Approach'}
+                  </h3>
+                </div>
+                <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors">
+                  {language === 'ar'
+                    ? 'أزدهر في مواجهة التحديات المعقدة، مثل منصة السفر واسعة النطاق التي قمت بتطويرها والتي تتطلب توافراً عالياً وبيانات في الوقت الفعلي. أركز على الاستفادة من البنية التحتية الحديثة لدفع الابتكار القابل للقياس.'
+                    : "I thrive on complex challenges, like the large-scale Traveling Platform I developed requiring high availability and real-time data. I focus on leveraging modern infrastructure to drive measurable innovation."}
+                </p>
+              </motion.div>
+
+              {/* My Background Card */}
+              <motion.div
+                initial={{ opacity: 0, x: language === 'ar' ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <GraduationCap size={20} className="text-accent-purple" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
+                    {language === 'ar' ? 'خلفيتي المهنية' : 'My Background'}
+                  </h3>
+                </div>
+                <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors">
+                  {language === 'ar'
+                    ? 'مع أساس من معهد تكنولوجيا المعلومات (ITI) في الذكاء الاصطناعي والبيانات الضخمة والحوسبة السحابية (هواوي)، أقدم منظوراً فريداً لتطوير الويب، من خلال الجمع بين التقنيات المتطورة والمبادئ الهندسية القوية.'
+                    : "With a foundation from the ITI in AI, Big Data, and Cloud (Huawei), I bring a unique perspective to web development, combining cutting-edge technologies with solid engineering principles."}
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Right Side - Stats & Tech Stack Cards */}
+            <div className="space-y-6">
+              {/* Stats Card */}
+              <motion.div
+                initial={{ opacity: 0, x: language === 'ar' ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Trophy size={20} className="text-accent-purple" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
+                    {language === 'ar' ? 'إحصائيات سريعة' : 'Quick Stats'}
+                  </h3>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-3 rounded-xl bg-white/5 group-hover:bg-white/10 transition-all">
+                    <h4 className="text-2xl font-bold text-accent-purple">3+</h4>
+                    <p className="text-white/40 text-xs uppercase tracking-wider">
+                      {language === 'ar' ? 'سنوات خبرة' : 'Years Experience'}
+                    </p>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/5 group-hover:bg-white/10 transition-all">
+                    <h4 className="text-2xl font-bold text-accent-purple">15+</h4>
+                    <p className="text-white/40 text-xs uppercase tracking-wider">
+                      {language === 'ar' ? 'مشاريع منجزة' : 'Projects Done'}
+                    </p>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/5 group-hover:bg-white/10 transition-all">
+                    <h4 className="text-2xl font-bold text-accent-purple">100%</h4>
+                    <p className="text-white/40 text-xs uppercase tracking-wider">
+                      {language === 'ar' ? 'رضا العملاء' : 'Client Satisfaction'}
+                    </p>
+                  </div>
+                  <div className="text-center p-3 rounded-xl bg-white/5 group-hover:bg-white/10 transition-all">
+                    <h4 className="text-2xl font-bold text-accent-purple">24/7</h4>
+                    <p className="text-white/40 text-xs uppercase tracking-wider">
+                      {language === 'ar' ? 'دعم فني' : 'Support'}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Tech Stack Card */}
+              <motion.div
+                initial={{ opacity: 0, x: language === 'ar' ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Code2 size={20} className="text-accent-purple" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
+                    {language === 'ar' ? 'التقنيات المستخدمة' : 'Tech Stack'}
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {["React", "Next.js", "Node.js", "TypeScript", "WordPress", "MongoDB", "PostgreSQL", "Tailwind CSS", "Docker", "AWS"].map((tech, i) => (
+                    <motion.span
+                      key={i}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all duration-300"
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Quote Card */}
+              <motion.div
+                initial={{ opacity: 0, x: language === 'ar' ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <MessageSquare size={20} className="text-accent-purple" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
+                    {language === 'ar' ? 'فلسفتي' : 'My Philosophy'}
+                  </h3>
+                </div>
+                <p className="text-white/60 text-sm leading-relaxed italic group-hover:text-white/80 transition-colors">
+                  {language === 'ar'
+                    ? '"الكود ليس مجرد وظيفة — بل هو خلق تجارب تمكّن المستخدمين وتحل مشاكل العالم الحقيقي. أؤمن بكتابة كود نظيف وقابل للصيانة يصمد أمام اختبار الزمن."'
+                    : '"Code is not just about functionality — it\'s about creating experiences that empower users and solve real-world problems. I believe in writing clean, maintainable code that stands the test of time."'}
+                </p>
+                <div className="mt-3 text-right">
+                  <span className="text-accent-purple text-xs font-medium">
+                    — {language === 'ar' ? 'إسراء علي' : 'Esraa Ali'}
+                  </span>
+                </div>
+              </motion.div>
+            </div>
           </div>
+
+          {/* Floating animated words */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="relative flex flex-wrap justify-center gap-4 mt-12 content-center"
+          >
+            {(language === 'ar'
+              ? [
+                { name: "تطوير كامل", size: "text-4xl", color: "text-accent-purple" },
+                { name: "React", size: "text-3xl", color: "text-blue-400" },
+                { name: "Node.js", size: "text-3xl", color: "text-emerald-400" },
+                { name: "ووردبريس", size: "text-3xl", color: "text-blue-500" },
+                { name: "الحوسبة السحابية", size: "text-2xl", color: "text-blue-300" },
+                { name: "البيانات الضخمة", size: "text-2xl", color: "text-orange-400" },
+                { name: "تكامل APIs", size: "text-2xl", color: "text-purple-300" },
+              ]
+              : [
+                { name: "Full-Stack", size: "text-4xl", color: "text-accent-purple" },
+                { name: "React", size: "text-3xl", color: "text-blue-400" },
+                { name: "Node.js", size: "text-3xl", color: "text-emerald-400" },
+                { name: "WordPress", size: "text-3xl", color: "text-blue-500" },
+                { name: "Cloud Computing", size: "text-2xl", color: "text-blue-300" },
+                { name: "Big Data", size: "text-2xl", color: "text-orange-400" },
+                { name: "API Integration", size: "text-2xl", color: "text-purple-300" },
+              ]
+            ).map((tag, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05, type: "spring", stiffness: 100 }}
+                whileHover={{ scale: 1.1, rotate: i % 2 === 0 ? 5 : -5 }}
+                className={`${tag.size} font-black uppercase tracking-tighter ${tag.color} cursor-default select-none hover:drop-shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all`}
+              >
+                {tag.name}
+              </motion.span>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* Education Section */}
-            {/* Education & Certifications Section - Tabbed Version */}
-            <section id="education" className="py-32 px-6">
+      {/* Education & Certifications Section  */}
+      <section id="education" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
+          {/* Logo Icon */}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center border border-accent-purple/30 shadow-lg">
+              <GraduationCap size={40} className="text-accent-purple" />
+            </div>
+          </motion.div>
           <SectionHeading title={t("eduTitle")} subtitle={t("eduSubtitle")} />
-          
+
           {/* Tab Buttons */}
           <div className="flex justify-center mb-12">
             <div className="inline-flex gap-2 bg-white/5 p-1.5 rounded-xl border border-white/5">
               {[
-                { id: "education", label: "Education", icon: <GraduationCap size={16} /> },
-                { id: "certifications", label: "Certifications", icon: <Award size={16} /> }
+                { id: "education", label: language === 'en' ? "Education" : "التعليم", icon: <GraduationCap size={16} /> },
+                { id: "certifications", label: language === 'en' ? "Certifications" : "الشهادات", icon: <Award size={16} /> }
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveEduTab(tab.id as 'education' | 'certifications')}
-                  className={`px-6 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 transition-all ${
-                    activeEduTab === tab.id
-                      ? "bg-gradient-to-r from-accent-purple to-accent-blue text-white shadow-lg"
-                      : "text-white/50 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`px-6 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 transition-all ${activeEduTab === tab.id
+                    ? "bg-gradient-to-r from-accent-purple to-accent-blue text-white shadow-lg"
+                    : "text-white/50 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   {tab.icon}
                   {tab.label}
@@ -1665,598 +1839,1117 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
                 exit={{ opacity: 0, y: -20 }}
                 className="grid md:grid-cols-2 gap-6"
               >
-                {education.map((edu, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="glass-card p-6 rounded-2xl"
-                  >
-                    <span className="text-accent-purple font-bold text-xs uppercase tracking-widest">{edu.year}</span>
-                    <h3 className="text-xl font-bold mt-2 mb-1">{edu.title}</h3>
-                    <p className="text-white/40 text-sm mb-3">{edu.institution}</p>
-                    <p className="text-white/50 text-sm">{edu.desc}</p>
-                  </motion.div>
-                ))}
+                {/* Faculty of Computers and Information - Luxor University */}
+                <motion.a
+                  href="https://www.linkedin.com/in/esra2ali/overlay/1188870984/skill-associations-details/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer block"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                      <GraduationCap size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors duration-300">
+                        {language === 'en' ? 'Faculty of Computers and Information' : 'كلية الحاسبات والمعلومات'}
+                      </h3>
+                      <p className="text-accent-purple text-xs font-medium mt-1">
+                        {language === 'en' ? 'Luxor University' : 'جامعة الأقصر'}
+                      </p>
+                      <p className="text-white/50 text-xs mt-2 group-hover:text-white/70 transition-colors duration-300">
+                        {language === 'en'
+                          ? "Bachelor's Degree in Information Technology • May 2023"
+                          : 'بكالوريوس في تكنولوجيا المعلومات • مايو 2023'}
+                      </p>
+                      <p className="text-white/40 text-[10px] mt-1">
+                        {language === 'en' ? 'Aug 2019 – Jul 2023' : 'أغسطس 2019 – يوليو 2023'}
+                      </p>
+                      <p className="text-white/40 text-[10px] mt-1">
+                        {language === 'en' ? 'Grade: B+' : 'التقدير: جيد جداً'}
+                      </p>
+                      <div className="mt-3 pt-3 border-t border-white/10">
+                        <p className="text-white/60 text-[11px] font-medium mb-1">
+                          {language === 'en' ? 'Core Competencies:' : 'الكفاءات الأساسية:'}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="text-[9px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50">
+                            {language === 'en' ? 'Network Administration' : 'إدارة الشبكات'}
+                          </span>
+                          <span className="text-[9px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50">
+                            {language === 'en' ? 'Cybersecurity' : 'الأمن السيبراني'}
+                          </span>
+                          <span className="text-[9px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50">
+                            {language === 'en' ? 'Database Management (SQL)' : 'إدارة قواعد البيانات (SQL)'}
+                          </span>
+                          <span className="text-[9px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50">
+                            {language === 'en' ? 'Systems Analysis' : 'تحليل النظم'}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="mt-3">
+                        <p className="text-white/60 text-[11px] font-medium mb-1">
+                          {language === 'en' ? 'Technical Proficiencies:' : 'المهارات التقنية:'}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          <span className="text-[9px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50">Python</span>
+                          <span className="text-[9px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50">Java</span>
+                          <span className="text-[9px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50">AWS Cloud Essentials</span>
+                          <span className="text-[9px] px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50">
+                            {language === 'en' ? 'Windows/Linux Server Management' : 'إدارة خوادم Windows/Linux'}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="mt-3 flex items-center gap-2">
+                        <span className="text-white/40 text-[9px]">
+                          🎯 {language === 'en' ? 'Activities: Basketball' : 'الأنشطة: كرة السلة'}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1 mt-3 text-accent-purple text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span>{language === 'en' ? 'View Details' : 'عرض التفاصيل'}</span>
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </motion.a>
+
+                {/* Digilians - Full-Stack Web Development */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 }}
+                  whileHover={{ scale: 1.02, y: -5 }}
+                  className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                      <Code2 size={22} className="text-accent-purple group-hover:text-white transition-colors" />
+                    </div>
+                    <div className="flex-1">
+                      <span className="text-accent-purple font-bold text-xs uppercase tracking-widest">
+                        {language === 'en' ? '2026 - present' : '2026 - حتى الآن'}
+                      </span>
+                      <h3 className="text-xl font-bold mt-2 mb-1 group-hover:text-accent-purple transition-colors">
+                        {language === 'en' ? 'Full-Stack Web Development' : 'تطوير الويب الكامل'}
+                      </h3>
+                      <p className="text-white/40 text-sm mb-3">Digilians (MCIT Initiative)</p>
+                      <p className="text-white/50 text-sm leading-relaxed">
+                        {language === 'en'
+                          ? 'Specialized training in modern web architecture, MERN stack, and scalable application design.'
+                          : 'تدريب متخصص في معمارية الويب الحديثة، MERN stack، وتصميم التطبيقات القابلة للتوسع.'}
+                      </p>
+
+                      {/* Skills Tags */}
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">React</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">Node.js</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">Express.js</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">MongoDB</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">TypeScript</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">Tailwind CSS</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">Redux</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">RESTful APIs</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">Git & GitHub</span>
+                        <span className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:bg-accent-purple/10 hover:text-accent-purple transition-all">Agile/Scrum</span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
             )}
 
             {activeEduTab === 'certifications' && (
-              <motion.div
-                key="certifications"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="grid md:grid-cols-2 gap-4"
-              >
-                {certifications.map((cert, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="glass-card p-5 rounded-2xl flex items-center gap-4"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-accent-purple/10 flex items-center justify-center">
-                      <FileBadge size={20} className="text-accent-purple" />
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Full-Stack Web Development */}
+                <motion.a
+                  href="https://www.linkedin.com/in/esra2ali/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer block"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                      <FileBadge size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-white text-sm">{cert.name}</h4>
-                      <p className="text-white/40 text-[10px]">{cert.date}</p>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors duration-300">
+                        {language === 'en' ? 'Full-Stack Web Development' : 'تطوير الويب الكامل'}
+                      </h3>
+                      <p className="text-accent-purple text-xs font-medium mt-1">DEPI Initiative • 2026</p>
+                      <p className="text-white/50 text-xs mt-2 group-hover:text-white/70 transition-colors duration-300">
+                        {language === 'en'
+                          ? 'Intensive training in modern web architecture, MERN stack, and scalable application design.'
+                          : 'تدريب مكثف في معمارية الويب الحديثة، MERN stack، وتصميم التطبيقات القابلة للتوسع.'}
+                      </p>
+                      <div className="flex items-center gap-1 mt-3 text-accent-purple text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span>{language === 'en' ? 'View Certificate' : 'عرض الشهادة'}</span>
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
                     </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+                  </div>
+                </motion.a>
+
+                {/* HCIA - Big Data */}
+                <motion.a
+                  href="https://www.linkedin.com/in/esra2ali/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.15 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer block"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                      <Database size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors duration-300">
+                        HCIA - {language === 'en' ? 'Big Data' : 'البيانات الضخمة'}
+                      </h3>
+                      <p className="text-accent-purple text-xs font-medium mt-1">Huawei • Dec 2024</p>
+                      <p className="text-white/50 text-xs mt-2 group-hover:text-white/70 transition-colors duration-300">
+                        {language === 'en'
+                          ? 'Huawei Certified ICT Associate - Big Data certification validating big data expertise.'
+                          : 'شهادة هواوي المعتمدة لتقنية المعلومات - البيانات الضخمة.'}
+                      </p>
+                      <div className="flex items-center gap-1 mt-3 text-accent-purple text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span>{language === 'en' ? 'View Certificate' : 'عرض الشهادة'}</span>
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </motion.a>
+
+                {/* HCIA - AI */}
+                <motion.a
+                  href="https://www.linkedin.com/in/esra2ali/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer block"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                      <Cpu size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors duration-300">
+                        HCIA - AI
+                      </h3>
+                      <p className="text-accent-purple text-xs font-medium mt-1">Huawei • Jan 2024</p>
+                      <p className="text-white/50 text-xs mt-2 group-hover:text-white/70 transition-colors duration-300">
+                        {language === 'en'
+                          ? 'Huawei Certified ICT Associate - Artificial Intelligence certification.'
+                          : 'شهادة هواوي المعتمدة لتقنية المعلومات - الذكاء الاصطناعي.'}
+                      </p>
+                      <div className="flex items-center gap-1 mt-3 text-accent-purple text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span>{language === 'en' ? 'View Certificate' : 'عرض الشهادة'}</span>
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </motion.a>
+
+                {/* HCIA - Cloud Computing */}
+                <motion.a
+                  href="https://www.linkedin.com/in/esra2ali/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.25 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer block"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                      <Cloud size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors duration-300">
+                        HCIA - {language === 'en' ? 'Cloud Computing' : 'الحوسبة السحابية'}
+                      </h3>
+                      <p className="text-accent-purple text-xs font-medium mt-1">Huawei • Jan 2023</p>
+                      <p className="text-white/50 text-xs mt-2 group-hover:text-white/70 transition-colors duration-300">
+                        {language === 'en'
+                          ? 'Huawei Certified ICT Associate - Cloud Computing certification.'
+                          : 'شهادة هواوي المعتمدة لتقنية المعلومات - الحوسبة السحابية.'}
+                      </p>
+                      <div className="flex items-center gap-1 mt-3 text-accent-purple text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span>{language === 'en' ? 'View Certificate' : 'عرض الشهادة'}</span>
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </motion.a>
+
+                {/* WordPress Developer */}
+                <motion.a
+                  href="https://www.linkedin.com/in/esra2ali/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer block"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                      <Code2 size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors duration-300">
+                        {language === 'en' ? 'WordPress Developer' : 'مطور ووردبريس'}
+                      </h3>
+                      <p className="text-accent-purple text-xs font-medium mt-1">ITI • 2025</p>
+                      <p className="text-white/50 text-xs mt-2 group-hover:text-white/70 transition-colors duration-300">
+                        {language === 'en'
+                          ? 'Certified WordPress Developer with expertise in custom themes and plugins.'
+                          : 'مطور ووردبريس معتمد مع خبرة في القوالب المخصصة والإضافات.'}
+                      </p>
+                      <div className="flex items-center gap-1 mt-3 text-accent-purple text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span>{language === 'en' ? 'View Certificate' : 'عرض الشهادة'}</span>
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </motion.a>
+
+                {/* View All Certifications Link */}
+                <motion.a
+                  href="https://www.linkedin.com/in/esra2ali/details/certifications/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.35 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer block flex items-center justify-center text-center"
+                >
+                  <div>
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                      <Award size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors duration-300">
+                      {language === 'en' ? 'View All Certifications' : 'عرض جميع الشهادات'}
+                    </h3>
+                    <p className="text-white/50 text-xs mt-2 group-hover:text-white/70 transition-colors duration-300">
+                      {language === 'en' ? 'Check my complete profile on LinkedIn' : 'اطلع على ملفي الشخصي الكامل على LinkedIn'}
+                    </p>
+                    <div className="flex items-center justify-center gap-1 mt-3 text-accent-purple text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span>{language === 'en' ? 'LinkedIn Profile' : 'ملف LinkedIn'}</span>
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                  </div>
+                </motion.a>
+              </div>
             )}
           </AnimatePresence>
         </div>
       </section>
-      
-      {/* Certifications Section with PDF Links */}
-<section id="certifications" className="py-32 px-6">
-  <div className="max-w-4xl mx-auto">
-    <div className="text-center mb-16">
-      <span className="text-accent-purple font-bold uppercase tracking-[0.3em] text-[10px]">
-        {language === 'en' ? 'Credentials' : 'الشهادات'}
-      </span>
-      <h2 className="text-5xl md:text-6xl font-bold mt-4 mb-6 tracking-tight">
-        {t('certifications')}
-      </h2>
-      <div className="w-16 h-1 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto rounded-full" />
-    </div>
 
-    <div className="space-y-4">
-      {/* Back-end (.net Core) diploma */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.1 }}
-        whileHover={{ scale: 1.01, x: 5 }}
-        className="glass-card p-5 rounded-xl hover:border-accent-purple/30 transition-all duration-300 group"
-      >
-        <a
-          href="/certificates/backend-dotnet-diploma.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col md:flex-row md:items-center justify-between gap-3 cursor-pointer"
-        >
-          <div className="flex-1">
-            <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
-              {language === 'en' ? 'Back-end (.NET Core) diploma' : 'دبلوم الواجهة الخلفية (.NET Core)'}
-            </h3>
-            <div className="flex items-center gap-3 mt-1">
-              <span className="text-accent-purple text-xs font-medium">Route Academy</span>
-              <span className="text-white/30 text-xs">•</span>
-              <span className="text-white/40 text-xs">2025</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 text-accent-purple text-xs font-medium opacity-0 group-hover:opacity-100 transition-all">
-            <span>View PDF</span>
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </div>
-        </a>
-      </motion.div>
 
-      {/* Web Development */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        whileHover={{ scale: 1.01, x: 5 }}
-        className="glass-card p-5 rounded-xl hover:border-accent-purple/30 transition-all duration-300 group"
-      >
-        <a
-          href="/certificates/web-development.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col md:flex-row md:items-center justify-between gap-3 cursor-pointer"
-        >
-          <div className="flex-1">
-            <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
-              {language === 'en' ? 'Web Development' : 'تطوير الويب'}
-            </h3>
-            <div className="flex items-center gap-3 mt-1">
-              <span className="text-accent-purple text-xs font-medium">Sprints</span>
-              <span className="text-white/30 text-xs">•</span>
-              <span className="text-white/40 text-xs">2025</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 text-accent-purple text-xs font-medium opacity-0 group-hover:opacity-100 transition-all">
-            <span>View PDF</span>
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </div>
-        </a>
-      </motion.div>
 
-      {/* Software Testing */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3 }}
-        whileHover={{ scale: 1.01, x: 5 }}
-        className="glass-card p-5 rounded-xl hover:border-accent-purple/30 transition-all duration-300 group"
-      >
-        <a
-          href="/certificates/software-testing.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col md:flex-row md:items-center justify-between gap-3 cursor-pointer"
-        >
-          <div className="flex-1">
-            <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
-              {language === 'en' ? 'Software Testing' : 'اختبار البرمجيات'}
-            </h3>
-            <div className="flex items-center gap-3 mt-1">
-              <span className="text-accent-purple text-xs font-medium">Sprints</span>
-              <span className="text-white/30 text-xs">•</span>
-              <span className="text-white/40 text-xs">2025</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 text-accent-purple text-xs font-medium opacity-0 group-hover:opacity-100 transition-all">
-            <span>View PDF</span>
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </div>
-        </a>
-      </motion.div>
 
-      {/* HCIA - Big Data */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4 }}
-        whileHover={{ scale: 1.01, x: 5 }}
-        className="glass-card p-5 rounded-xl hover:border-accent-purple/30 transition-all duration-300 group"
-      >
-        <a
-          href="/certificates/010101801855808463011400257.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col md:flex-row md:items-center justify-between gap-3 cursor-pointer"
-        >
-          <div className="flex-1">
-            <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
-              HCIA - Big Data
-            </h3>
-            <div className="flex items-center gap-3 mt-1">
-              <span className="text-accent-purple text-xs font-medium">Huawei</span>
-              <span className="text-white/30 text-xs">•</span>
-              <span className="text-white/40 text-xs">Dec 2024</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 text-accent-purple text-xs font-medium opacity-0 group-hover:opacity-100 transition-all">
-            <span>View PDF</span>
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </div>
-        </a>
-      </motion.div>
-
-      {/* HCIA - AI */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.5 }}
-        whileHover={{ scale: 1.01, x: 5 }}
-        className="glass-card p-5 rounded-xl hover:border-accent-purple/30 transition-all duration-300 group"
-      >
-        <a
-          href="/certificates/01010200185580822731409.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col md:flex-row md:items-center justify-between gap-3 cursor-pointer"
-        >
-          <div className="flex-1">
-            <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
-              HCIA - AI
-            </h3>
-            <div className="flex items-center gap-3 mt-1">
-              <span className="text-accent-purple text-xs font-medium">Huawei</span>
-              <span className="text-white/30 text-xs">•</span>
-              <span className="text-white/40 text-xs">Jan 2024</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 text-accent-purple text-xs font-medium opacity-0 group-hover:opacity-100 transition-all">
-            <span>View PDF</span>
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </div>
-        </a>
-      </motion.div>
-
-      {/* HCIA - Cloud Computing */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.6 }}
-        whileHover={{ scale: 1.01, x: 5 }}
-        className="glass-card p-5 rounded-xl hover:border-accent-purple/30 transition-all duration-300 group"
-     >
-        <a
-          href="/certificates/hcia-cloud-computing.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col md:flex-row md:items-center justify-between gap-3 cursor-pointer"
-        >
-          <div className="flex-1">
-            <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors">
-              HCIA - Cloud Computing
-            </h3>
-            <div className="flex items-center gap-3 mt-1">
-              <span className="text-accent-purple text-xs font-medium">Huawei</span>
-              <span className="text-white/30 text-xs">•</span>
-              <span className="text-white/40 text-xs">Jan 2023</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 text-accent-purple text-xs font-medium opacity-0 group-hover:opacity-100 transition-all">
-            <span>View PDF</span>
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </div>
-        </a>
-      </motion.div>
-    </div>
-  </div>
-</section>
 
       {/* Skills Section */}
-     
+
       <section id="skills" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <SectionHeading
-            title={t("skillsTitle")}
-            subtitle={t("skillsSubtitle")}
-            color="purple"
-          />
-
-          {/* Tab Buttons */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex flex-wrap justify-center gap-2 bg-white/5 p-1.5 rounded-xl border border-white/5">
-              {[
-                {
-                  id: "backend",
-                  label: t("backEnd"),
-                  icon: <Server size={16} />,
-                },
-                {
-                  id: "frontend",
-                  label: t("frontEnd"),
-                  icon: <Layout size={16} />,
-                },
-                {
-                  id: "fullstack",
-                  label: t("fullStack"),
-                  icon: <Code2 size={16} />,
-                },
-                {
-                  id: "softskills",
-                  label: t("softSkills"),
-                  icon: <Users size={16} />,
-                },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveSkillTab(tab.id as any)}
-                  className={`px-6 py-2.5 rounded-lg font-bold text-sm flex items-center gap-2 transition-all ${activeSkillTab === tab.id
-                      ? "bg-gradient-to-r from-accent-purple to-accent-blue text-white shadow-lg"
-                      : "text-white/50 hover:text-white hover:bg-white/5"
-                    }`}
-                >
-                  {tab.icon}
-                  {tab.label}
-                </button>
-              ))}
+          {/* Logo */}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center border border-accent-purple/30 shadow-lg">
+              <Brain size={40} className="text-accent-purple" />
             </div>
+          </motion.div>
+
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold mt-4 mb-6 tracking-tight">
+              {t("skillsTitle")}
+            </h2>
+            <span className="text-accent-purple font-bold uppercase tracking-[0.3em] text-[10px] m-5">
+              {t("skillsSubtitle")}
+            </span>
+            <div className="w-16 h-1 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto rounded-full" />
           </div>
 
-          {/* Tab Content with animated skill cards */}
+          {/* Tab Buttons */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {[
+              { id: "backend", label: language === 'en' ? "Back End" : "الواجهة الخلفية", icon: <Server size={16} /> },
+              { id: "frontend", label: language === 'en' ? "Front End" : "الواجهة الأمامية", icon: <Layout size={16} /> },
+              { id: "fullstack", label: language === 'en' ? "Full Stack" : "التطوير الكامل", icon: <Code2 size={16} /> },
+              { id: "softskills", label: language === 'en' ? "Soft Skills" : "المهارات الشخصية", icon: <Users size={16} /> },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveSkillTab(tab.id as any)}
+                className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${activeSkillTab === tab.id
+                    ? "bg-gradient-to-r from-accent-purple to-accent-blue text-white shadow-lg"
+                    : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10 border border-white/10"
+                  }`}
+              >
+                <span className="flex items-center gap-2">
+                  {tab.icon}
+                  {tab.label}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Brief */}
+          <motion.div
+            key={`brief-${activeSkillTab}`}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="text-center mb-12"
+          >
+            <p className="text-white/60 text-sm max-w-3xl mx-auto leading-relaxed">
+              {activeSkillTab === "backend" && (language === 'en'
+                ? "Building scalable server-side applications, RESTful APIs, and database management with high-performance backend solutions."
+                : "بناء تطبيقات خادم قابلة للتوسع، وواجهات برمجة تطبيقات RESTful، وإدارة قواعد البيانات بحلول خلفية عالية الأداء.")}
+              {activeSkillTab === "frontend" && (language === 'en'
+                ? "Creating responsive, interactive user interfaces with modern frameworks and smooth animations for optimal user experience."
+                : "إنشاء واجهات مستخدم متجاوبة وتفاعلية باستخدام أطر العمل الحديثة والرسوم المتحركة السلسة لتجربة مستخدم مثالية.")}
+              {activeSkillTab === "fullstack" && (language === 'en'
+                ? "End-to-end application development, integrating frontend and backend technologies for complete web solutions."
+                : "تطوير تطبيقات شاملة، ودمج تقنيات الواجهة الأمامية والخلفية لحلول ويب كاملة.")}
+              {activeSkillTab === "softskills" && (language === 'en'
+                ? "Effective communication, teamwork, problem-solving, and adaptability to drive project success and collaboration."
+                : "التواصل الفعال، العمل الجماعي، حل المشكلات، والقدرة على التكيف لدفع نجاح المشروع والتعاون.")}
+            </p>
+          </motion.div>
+
+          {/* Tab Content */}
           <AnimatePresence mode="wait">
+            {/* Back End Skills */}
             {activeSkillTab === "backend" && (
               <motion.div
                 key="backend"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
               >
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                  {backendSkills.map((skill, idx) => (
-                    <motion.div
-                      key={skill.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.1, duration: 0.4 }}
-                      whileHover={{ scale: 1.02, y: -4 }}
-                      className="group flex flex-col p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-accent-purple/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-accent-purple/20"
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center text-accent-purple group-hover:scale-110 transition-transform">
-                          {skill.icon}
-                        </div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-accent-purple transition-colors">
-                          {skill.title}
-                        </h3>
-                      </div>
-                      <p className="text-white/60 leading-relaxed text-sm pl-13">
-                        {skill.description}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiNodedotjs className="w-7 h-7 text-[#339933] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Node.js / Express</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiMongodb className="w-7 h-7 text-[#47A248] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Databases' : 'قواعد البيانات'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiAuth0 className="w-7 h-7 text-[#EB5424] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Authentication & Security' : 'المصادقة والأمان'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiPostman className="w-7 h-7 text-[#FF6C37] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'API Integration' : 'تكامل واجهات API'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiCodeigniter className="w-7 h-7 text-[#EF4223] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Design Patterns' : 'أنماط التصميم'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiRedis className="w-7 h-7 text-[#FF4438] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Redis & Caching' : 'Redis والتخزين المؤقت'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiDocker className="w-7 h-7 text-[#2496ED] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Docker & Containerization' : 'Docker والحاويات'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiServerless className="w-7 h-7 text-[#FD5750] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Microservices' : 'الخدمات المصغرة'}
+                  </h3>
+                </motion.div>
               </motion.div>
             )}
 
+            {/* Front End Skills - Arabic Titles */}
             {activeSkillTab === "frontend" && (
               <motion.div
                 key="frontend"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.1 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
               >
-                <div className="  grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                  {frontendSkills.map((skill, idx) => (
-                    <motion.div
-                      key={skill.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.1, duration: 0.4 }}
-                      whileHover={{ scale: 1.02, y: -4 }}
-                      className="group flex flex-col p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-accent-purple/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-accent-purple/20"
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center text-accent-purple group-hover:scale-110 transition-transform">
-                          {skill.icon}
-                        </div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-accent-purple transition-colors">
-                          {skill.title}
-                        </h3>
-                      </div>
-                      <p className="text-white/60 leading-relaxed text-sm pl-13">
-                        {skill.description}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <FaReact className="w-7 h-7 text-[#61DAFB]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">React</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiNextdotjs className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Next.js</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiTypescript className="w-7 h-7 text-[#3178C6]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">TypeScript</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiJavascript className="w-7 h-7 text-[#F7DF1E]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">JavaScript</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiRedux className="w-7 h-7 text-[#764ABC]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Redux</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <FaHtml5 className="w-7 h-7 text-[#E34F26]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">HTML5</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <FaCss3Alt className="w-7 h-7 text-[#1572B6]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">CSS3</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiTailwindcss className="w-7 h-7 text-[#06B6D4]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Tailwind</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <FaSass className="w-7 h-7 text-[#CC6699]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Sass</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <FaBootstrap className="w-7 h-7 text-[#7952B3]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Bootstrap</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiJquery className="w-7 h-7 text-[#0769AD]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">jQuery</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.65 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <FaGithub className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">GitHub</h3>
+                </motion.div>
               </motion.div>
             )}
 
+            {/* Full Stack Skills */}
             {activeSkillTab === "fullstack" && (
               <motion.div
                 key="fullstack"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
               >
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                  {fullstackSkills.map((skill, idx) => (
-                    <motion.div
-                      key={skill.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.1, duration: 0.4 }}
-                      whileHover={{ scale: 1.02, y: -4 }}
-                      className="group flex flex-col p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-accent-purple/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-accent-purple/20"
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center text-accent-purple group-hover:scale-110 transition-transform">
-                          {skill.icon}
-                        </div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-accent-purple transition-colors">
-                          {skill.title}
-                        </h3>
-                      </div>
-                      <p className="text-white/60 leading-relaxed text-sm pl-13">
-                        {skill.description}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiSwagger className="w-7 h-7 text-[#85EA2D]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">RESTful APIs</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiCodeigniter className="w-7 h-7 text-[#EF4223]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Design Patterns' : 'أنماط التصميم'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiRedis className="w-7 h-7 text-[#FF4438]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Redis & Caching' : 'Redis والتخزين المؤقت'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <FaHtml5 className="w-7 h-7 text-[#E34F26]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">HTML5 / CSS3</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiJavascript className="w-7 h-7 text-[#F7DF1E]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">JavaScript</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiPhp className="w-7 h-7 text-[#777BB4]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">PHP</h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <FaReact className="w-7 h-7 text-[#61DAFB]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'React / Next.js' : 'React / Next.js'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <SiNodedotjs className="w-7 h-7 text-[#339933]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Node.js / Express</h3>
+                </motion.div>
               </motion.div>
             )}
 
+            {/* Soft Skills - Arabic Titles */}
             {activeSkillTab === "softskills" && (
               <motion.div
                 key="softskills"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
               >
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                  {softSkillsList.map((skill, idx) => (
-                    <motion.div
-                      key={skill.title}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.1, duration: 0.4 }}
-                      whileHover={{ scale: 1.02, y: -4 }}
-                      className="group flex flex-col p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-accent-purple/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-accent-purple/20"
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center text-accent-purple group-hover:scale-110 transition-transform">
-                          {skill.icon}
-                        </div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-accent-purple transition-colors">
-                          {skill.title}
-                        </h3>
-                      </div>
-                      <p className="text-white/60 leading-relaxed text-sm pl-13">
-                        {skill.description}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <MessageSquare size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Effective Communication' : 'التواصل الفعال'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <Users size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Team Collaboration' : 'العمل الجماعي'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <Target size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Problem Solving' : 'حل المشكلات'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <RefreshCw size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Adaptability' : 'القدرة على التكيف'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <Clock size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Time Management' : 'إدارة الوقت'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <TrendingUp size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Leadership' : 'القيادة'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <Lightbulb size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Critical Thinking' : 'التفكير النقدي'}
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.45 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
+                    <BookOpen size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                    {language === 'en' ? 'Continuous Learning' : 'التعلم المستمر'}
+                  </h3>
+                </motion.div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       </section>
 
+
       {/* Experience Section */}
-     
-     
-<section id="experience" className="py-32 px-6 bg-white/5">
-  <div className="max-w-7xl mx-auto">
-    <SectionHeading title={t("expTitle")} subtitle={t("expSubtitle")} />
 
-    <div className="space-y-12">
-      {experiences.map((exp, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
-          whileHover={{ scale: 1.01 }}
-          className="glass-card p-8 rounded-3xl hover:border-accent-purple/30 hover:shadow-xl hover:shadow-accent-purple/10 transition-all duration-500"
-        >
-          {/* Header */}
-          <div className="mb-6 pb-6 border-b border-white/10">
-            <motion.div 
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-purple/10 mb-3"
-            >
-              <Calendar size={12} className="text-accent-purple" />
-              <span className="text-[10px] font-bold text-accent-purple">{exp.period}</span>
-            </motion.div>
-            <motion.h3 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 + 0.3 }}
-              className="text-xl font-bold text-white hover:text-accent-purple transition-colors duration-300"
-            >
-              {exp.title}
-            </motion.h3>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 + 0.4 }}
-              className="text-accent-purple text-sm mt-1"
-            >
-              {exp.company}
-            </motion.p>
+
+      <section id="experience" className="py-32 px-6 bg-white/5">
+        <div className="max-w-7xl mx-auto">
+          {/* Experience Section Logo */}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center border border-accent-purple/30 shadow-lg">
+              <Briefcase size={40} className="text-accent-purple" />
+            </div>
+          </motion.div>
+          <SectionHeading
+            title={t("expTitle")} subtitle={t("expSubtitle")} />
+
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+                whileHover={{ scale: 1.01 }}
+                className="glass-card p-8 rounded-3xl hover:border-accent-purple/30 hover:shadow-xl hover:shadow-accent-purple/10 transition-all duration-500"
+              >
+                {/* Header */}
+                <div className="mb-6 pb-6 border-b border-white/10">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
+                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-purple/10 mb-3"
+                  >
+                    <Calendar size={12} className="text-accent-purple" />
+                    <span className="text-[10px] font-bold text-accent-purple">{exp.period}</span>
+                  </motion.div>
+                  <motion.h3
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 + 0.3 }}
+                    className="text-xl font-bold text-white hover:text-accent-purple transition-colors duration-300"
+                  >
+                    {exp.title}
+                  </motion.h3>
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 + 0.4 }}
+                    className="text-accent-purple text-sm mt-1"
+                  >
+                    {exp.company}
+                  </motion.p>
+                </div>
+
+                {/* CAR Cards */}
+                <div className="space-y-4 max-w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto">
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 + 0.5, type: "spring", stiffness: 100 }}
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    className="p-4 rounded-xl bg-red-500/10 border-l-4 border-red-500 hover:bg-red-500/15 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <motion.div
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
+                      >
+                        <Target size={16} className="text-red-400" />
+                      </motion.div>
+                      <h4 className="font-bold text-sm text-red-400">Challenge</h4>
+                    </div>
+                    <p className="text-white/50 text-sm leading-relaxed pl-6">{exp.challenge}</p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 + 0.6, type: "spring", stiffness: 100 }}
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    className="p-4 rounded-xl bg-blue-500/10 border-l-4 border-blue-500 hover:bg-blue-500/15 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <motion.div
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 0.5, delay: index * 0.1 + 0.9 }}
+                      >
+                        <Lightbulb size={16} className="text-blue-400" />
+                      </motion.div>
+                      <h4 className="font-bold text-sm text-blue-400">Action</h4>
+                    </div>
+                    <p className="text-white/50 text-sm leading-relaxed pl-6">{exp.action}</p>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 + 0.7, type: "spring", stiffness: 100 }}
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    className="p-4 rounded-xl bg-green-500/10 border-l-4 border-green-500 hover:bg-green-500/15 transition-all duration-300"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <motion.div
+                        animate={{ rotate: [0, 360] }}
+                        transition={{ duration: 0.5, delay: index * 0.1 + 1.0 }}
+                      >
+                        <TrendingUp size={16} className="text-green-400" />
+                      </motion.div>
+                      <h4 className="font-bold text-sm text-green-400">Result</h4>
+                    </div>
+                    <p className="text-white/50 text-sm leading-relaxed pl-6">{exp.result}</p>
+                  </motion.div>
+                </div>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* CAR Cards */}
-          <div className="space-y-4 max-w-full md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mx-auto">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 + 0.5, type: "spring", stiffness: 100 }}
-              whileHover={{ scale: 1.02, x: 5 }}
-              className="p-4 rounded-xl bg-red-500/10 border-l-4 border-red-500 hover:bg-red-500/15 transition-all duration-300"
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
-                >
-                  <Target size={16} className="text-red-400" />
-                </motion.div>
-                <h4 className="font-bold text-sm text-red-400">Challenge</h4>
-              </div>
-              <p className="text-white/50 text-sm leading-relaxed pl-6">{exp.challenge}</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 + 0.6, type: "spring", stiffness: 100 }}
-              whileHover={{ scale: 1.02, x: 5 }}
-              className="p-4 rounded-xl bg-blue-500/10 border-l-4 border-blue-500 hover:bg-blue-500/15 transition-all duration-300"
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 0.5, delay: index * 0.1 + 0.9 }}
-                >
-                  <Lightbulb size={16} className="text-blue-400" />
-                </motion.div>
-                <h4 className="font-bold text-sm text-blue-400">Action</h4>
-              </div>
-              <p className="text-white/50 text-sm leading-relaxed pl-6">{exp.action}</p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 + 0.7, type: "spring", stiffness: 100 }}
-              whileHover={{ scale: 1.02, x: 5 }}
-              className="p-4 rounded-xl bg-green-500/10 border-l-4 border-green-500 hover:bg-green-500/15 transition-all duration-300"
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 0.5, delay: index * 0.1 + 1.0 }}
-                >
-                  <TrendingUp size={16} className="text-green-400" />
-                </motion.div>
-                <h4 className="font-bold text-sm text-green-400">Result</h4>
-              </div>
-              <p className="text-white/50 text-sm leading-relaxed pl-6">{exp.result}</p>
-            </motion.div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</section>
-     
 
       {/* Projects Section */}
 
-     
+
       <section id="projects" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -2276,8 +2969,8 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
                 key={tab}
                 onClick={() => setActiveProjectTab(tab as any)}
                 className={`px-8 py-3 rounded-full font-bold text-sm transition-all duration-300 ${activeProjectTab === tab
-                    ? "bg-gradient-to-r from-accent-purple to-accent-blue text-white shadow-[0_0_20px_rgba(139,92,246,0.3)]"
-                    : "bg-white/5 text-white/40 hover:text-white border border-white/5"
+                  ? "bg-gradient-to-r from-accent-purple to-accent-blue text-white shadow-[0_0_20px_rgba(139,92,246,0.3)]"
+                  : "bg-white/5 text-white/40 hover:text-white border border-white/5"
                   }`}
               >
                 {tab}
@@ -2360,70 +3053,615 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
         </div>
       </section>
 
-      
+
 
       {/* Services Section */}
-      
-<section id="services" className="py-32 px-6">
-  <div className="max-w-6xl mx-auto">
+
+
+
+      <section id="services" className="py-32 px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Logo */}
+          <motion.div
+            initial={{ scale: 0, rotate: -180 }}
+            whileInView={{ scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center border border-accent-purple/30 shadow-lg">
+              <Code2 size={40} className="text-accent-purple" />
+            </div>
+          </motion.div>
+
+          <div className="text-center mb-16">
+            <span className="text-accent-purple font-bold uppercase tracking-[0.3em] text-[10px]">
+              {t("servSubtitle")}
+            </span>
+            <h2 className="text-5xl md:text-6xl font-bold mt-4 mb-6 tracking-tight">
+              {t("servTitle")}
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto rounded-full" />
+            <p className="text-white/50 max-w-2xl mx-auto mt-6">
+              {language === 'en'
+                ? "Comprehensive development services to bring your ideas to life"
+                : "خدمات تطوير شاملة لإضفاء الحيوية على أفكارك"}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Front-End Development */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -8 }}
+              className="group glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 cursor-pointer"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                <Code2 size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                {language === 'en' ? 'Front-End Development' : 'تطوير الواجهة الأمامية'}
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4 group-hover:text-white/70 transition-colors duration-300">
+                {language === 'en'
+                  ? 'Building modern, scalable, and high-performance web applications using React, TypeScript, and clean component-based architecture.'
+                  : 'بناء تطبيقات ويب حديثة وقابلة للتوسع وعالية الأداء باستخدام React و TypeScript وهندسة نظيفة قائمة على المكونات.'}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">React</span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">TypeScript</span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">Next.js</span>
+              </div>
+            </motion.div>
+
+            {/* UI to Code Conversion */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              whileHover={{ y: -8 }}
+              className="group glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 cursor-pointer"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                <Layout size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                {language === 'en' ? 'UI to Code Conversion' : 'تحويل واجهات المستخدم إلى كود'}
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4 group-hover:text-white/70 transition-colors duration-300">
+                {language === 'en'
+                  ? 'Converting UI/UX designs (Figma, Adobe XD) into pixel-perfect, responsive, and fully functional web interfaces.'
+                  : 'تحويل تصاميم UI/UX (Figma، Adobe XD) إلى واجهات ويب دقيقة ومتجاوبة وكاملة الوظائف.'}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">Figma</span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">Adobe XD</span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">
+                  {language === 'en' ? 'Pixel Perfect' : 'دقة البكسل'}
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Modern UI Design */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              whileHover={{ y: -8 }}
+              className="group glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 cursor-pointer"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                <Palette size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                {language === 'en' ? 'Modern UI Design' : 'تصميم واجهات مستخدم حديثة'}
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4 group-hover:text-white/70 transition-colors duration-300">
+                {language === 'en'
+                  ? 'Creating responsive layouts that work smoothly across all devices using Tailwind CSS and Bootstrap.'
+                  : 'إنشاء تخطيطات متجاوبة تعمل بسلاسة عبر جميع الأجهزة باستخدام Tailwind CSS و Bootstrap.'}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">Tailwind CSS</span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">Bootstrap</span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">
+                  {language === 'en' ? 'Responsive' : 'متجاوب'}
+                </span>
+              </div>
+            </motion.div>
+
+            {/* E-commerce Solutions */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.25 }}
+              whileHover={{ y: -8 }}
+              className="group glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 cursor-pointer"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                <ShoppingBag size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                {language === 'en' ? 'E-commerce Solutions' : 'حلول التجارة الإلكترونية'}
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4 group-hover:text-white/70 transition-colors duration-300">
+                {language === 'en'
+                  ? 'Developing clean, fast, and scalable e-commerce front-end interfaces focused on performance and user experience.'
+                  : 'تطوير واجهات أمامية نظيفة وسريعة وقابلة للتوسع للتجارة الإلكترونية تركز على الأداء وتجربة المستخدم.'}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">WooCommerce</span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">Shopify</span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">
+                  {language === 'en' ? 'Payment Gateway' : 'بوابة الدفع'}
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Performance Optimization */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              whileHover={{ y: -8 }}
+              className="group glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 cursor-pointer"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                <Gauge size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                {language === 'en' ? 'Performance Optimization' : 'تحسين الأداء'}
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4 group-hover:text-white/70 transition-colors duration-300">
+                {language === 'en'
+                  ? 'Improving website speed, rendering performance, and overall user experience through optimization best practices.'
+                  : 'تحسين سرعة موقع الويب وأداء العرض وتجربة المستخدم الشاملة من خلال أفضل ممارسات التحسين.'}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">
+                  {language === 'en' ? 'Lazy Loading' : 'التحميل البطيء'}
+                </span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">
+                  {language === 'en' ? 'Code Splitting' : 'تقسيم الكود'}
+                </span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">Core Web Vitals</span>
+              </div>
+            </motion.div>
+
+            {/* Maintainable Code */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35 }}
+              whileHover={{ y: -8 }}
+              className="group glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 cursor-pointer"
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+                <GitBranch size={24} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+                {language === 'en' ? 'Maintainable Code' : 'كود قابل للصيانة'}
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed mb-4 group-hover:text-white/70 transition-colors duration-300">
+                {language === 'en'
+                  ? 'Writing well-structured, readable, and maintainable code that makes future updates easy after delivery.'
+                  : 'كتابة كود جيد التنظيم وقابل للقراءة والصيانة يجعل التحديثات المستقبلية سهلة بعد التسليم.'}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">
+                  {language === 'en' ? 'Clean Code' : 'كود نظيف'}
+                </span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">
+                  {language === 'en' ? 'SOLID Principles' : 'مبادئ SOLID'}
+                </span>
+                <span className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 group-hover:border-accent-purple/50 group-hover:bg-accent-purple/10 group-hover:text-accent-purple transition-all duration-300">
+                  {language === 'en' ? 'Documentation' : 'توثيق'}
+                </span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Pricing Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="flex justify-center mt-12"
+          >
+            <Link
+              to="/pricing"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-accent-purple to-accent-blue text-white font-bold uppercase tracking-widest text-sm rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-accent-purple/30 group"
+            >
+              <DollarSign size={18} className="group-hover:rotate-12 transition-transform" />
+              {language === 'en' ? 'View Pricing Plans' : 'عرض خطط الأسعار'}
+              <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+
+      {/* Achievements Section */}
+      {/* Achievements Section */}
+<section id="achievements" className="py-32 px-6 bg-white/5">
+  <div className="max-w-7xl mx-auto">
     <div className="text-center mb-16">
       <span className="text-accent-purple font-bold uppercase tracking-[0.3em] text-[10px]">
-        {t("servSubtitle")}
+        {language === 'en' ? 'RECOGNITIONS' : 'التكريمات'}
       </span>
       <h2 className="text-5xl md:text-6xl font-bold mt-4 mb-6 tracking-tight">
-        {t("servTitle")}
+        {language === 'en' ? 'Achievements' : 'الإنجازات'}
       </h2>
       <div className="w-16 h-1 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto rounded-full" />
       <p className="text-white/50 max-w-2xl mx-auto mt-6">
-        {language === 'en' 
-          ? "Comprehensive development services to bring your ideas to life"
-          : "خدمات تطوير شاملة لإضفاء الحيوية على أفكارك"}
+        {language === 'en'
+          ? "Certifications and recognitions that showcase my expertise"
+          : "الشهادات والتكريمات التي تعرض خبراتي"}
       </p>
     </div>
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {services.map((service, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.1 }}
-          whileHover={{ y: -5 }}
-          className="glass-card p-6 rounded-2xl hover:border-accent-purple/30 hover:shadow-xl hover:shadow-accent-purple/10 transition-all duration-300"
-        >
-          {/* Icon */}
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mb-4">
-            {service.icon}
+    <div className="grid md:grid-cols-3 gap-6">
+      {/* Graduation Project - ITAC Award Winner - spans 2 columns */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.1 }}
+        whileHover={{ y: -8, scale: 1.02 }}
+        className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer md:col-span-2"
+      >
+        <div className="flex items-start gap-4">
+          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+            <Award size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
           </div>
+          <div className="flex-1">
+            <h3 className="text-lg font-bold text-white group-hover:text-accent-purple transition-colors duration-300">
+              {language === 'en' 
+                ? "Graduation Project | ITAC Award Winner (ITIDA)"
+                : "مشروع التخرج | الفائز بجائزة ITAC (ITIDA)"}
+            </h3>
+            <p className="text-accent-purple text-xs font-medium mt-1">
+              {language === 'en'
+                ? "Integrated Smart Bag & Travel Ecosystem"
+                : "الحقيبة الذكية المتكاملة والنظام البيئي للسفر"}
+            </p>
+            
+            {/* Award & Recognition */}
+            <div className="mt-3 p-3 rounded-xl bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/20">
+              <p className="text-yellow-400 text-xs font-semibold mb-1">
+                {language === 'en' ? "🏆 Award & Recognition" : "🏆 الجائزة والتكريم"}
+              </p>
+              <p className="text-white/60 text-xs leading-relaxed">
+                {language === 'en'
+                  ? "Won the ITAC Graduation Project Support Program by ITIDA, securing a competitive grant for innovative ICT solutions meeting industry standards."
+                  : "فاز ببرنامج دعم مشاريع التخرج ITAC من ITIDA، وحصل على منحة تنافسية لحلول تكنولوجيا المعلومات والاتصالات المبتكرة التي تلبي معايير الصناعة."}
+              </p>
+            </div>
+            
+            {/* IoT Engineering */}
+            <div className="mt-3 p-3 rounded-xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20">
+              <p className="text-blue-400 text-xs font-semibold mb-1">
+                {language === 'en' ? "🔧 IoT Engineering (Smart Bag)" : "🔧 هندسة إنترنت الأشياء (الحقيبة الذكية)"}
+              </p>
+              <p className="text-white/60 text-xs leading-relaxed">
+                {language === 'en'
+                  ? "Designed and built a 'Smart Bag' prototype integrating Arduino/Raspberry Pi with features like GPS tracking, obstacle avoidance, and smart locking to enhance traveler security."
+                  : "تصميم وبناء نموذج أولي للحقيبة الذكية يدمج Arduino/Raspberry Pi بميزات مثل تتبع GPS وتجنب العوائق والقفل الذكي لتعزيز أمان المسافر."}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-2">
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300">Arduino</span>
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300">Raspberry Pi</span>
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300">
+                  {language === 'en' ? "GPS Tracking" : "تتبع GPS"}
+                </span>
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300">
+                  {language === 'en' ? "Smart Locking" : "قفل ذكي"}
+                </span>
+              </div>
+            </div>
+            
+            {/* Full-Stack Web Development */}
+            <div className="mt-3 p-3 rounded-xl bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+              <p className="text-purple-400 text-xs font-semibold mb-1">
+                {language === 'en' ? "💻 Full-Stack Web Development" : "💻 تطوير الويب الكامل"}
+              </p>
+              <p className="text-white/60 text-xs leading-relaxed">
+                {language === 'en'
+                  ? "Developed a high-traffic travel platform using React and Node.js, featuring real-time booking management, secure user profiles, and a mobile-first responsive UI."
+                  : "تطوير منصة سفر عالية الحركة باستخدام React و Node.js، وتتميز بإدارة الحجز في الوقت الفعلي وملفات تعريف المستخدمين الآمنة وواجهة مستخدم متجاوبة تعتمد على الهواتف المحمولة أولاً."}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-2">
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">React</span>
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">Node.js</span>
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">
+                  {language === 'en' ? "Real-time Booking" : "حجز فوري"}
+                </span>
+                <span className="text-[9px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">
+                  {language === 'en' ? "Mobile-first UI" : "واجهة متجاوبة"}
+                </span>
+              </div>
+            </div>
+            
+            {/* System Integration */}
+            <div className="mt-3 p-3 rounded-xl bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20">
+              <p className="text-green-400 text-xs font-semibold mb-1">
+                {language === 'en' ? "🔗 System Integration" : "🔗 تكامل الأنظمة"}
+              </p>
+              <p className="text-white/60 text-xs leading-relaxed">
+                {language === 'en'
+                  ? "Successfully bridged the gap between hardware (IoT) and software (Web API) to create a seamless, market-ready travel experience."
+                  : "سد الفجوة بين الأجهزة (إنترنت الأشياء) والبرامج (واجهة برمجة تطبيقات الويب) بنجاح لخلق تجربة سفر سلسة وجاهزة للسوق."}
+              </p>
+            </div>
+            
+            <div className="flex items-center gap-1 mt-3 text-accent-purple text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span>{language === 'en' ? "View Project Details" : "عرض تفاصيل المشروع"}</span>
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
-          {/* Title */}
-          <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
-          
-          {/* Description */}
-          <p className="text-white/50 text-sm leading-relaxed mb-4">
-            {service.desc}
+      {/* Huawei ICT Competition - with LinkedIn link */}
+      <motion.a
+        href="https://www.linkedin.com/feed/update/urn:li:activity:7435760534282506240/"
+        target="_blank"
+        rel="noopener noreferrer"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+        whileHover={{ y: -8, scale: 1.02 }}
+        className="glass-card p-6 rounded-2xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer block"
+      >
+        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-all duration-300">
+          <Trophy size={28} className="text-accent-purple group-hover:text-white transition-colors duration-300" />
+        </div>
+        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
+          {language === 'en' ? "Huawei ICT Competition" : "مسابقة هواوي لتكنولوجيا المعلومات"}
+        </h3>
+        <p className="text-accent-purple text-xs font-medium mb-3">
+          {language === 'en' ? "International Recognition" : "تقدير دولي"}
+        </p>
+        
+        {/* Main Description */}
+         <div className="mt-2 p-2 rounded-lg bg-gradient-to-r from-yellow-500/10 to-yellow-500/10 border border-yellow-500/20">
+        <p className="text-white/50 text-xs leading-relaxed group-hover:text-white/70 transition-colors duration-300 mb-3">
+          {language === 'en'
+            ? "Participated in the prestigious Huawei ICT Competition, demonstrating expertise in cloud computing and big data technologies. Participating in this competition demonstrates a candidate's ability to handle complex, real-world ICT challenges."
+            : "المشاركة في مسابقة هواوي المرموقة لتكنولوجيا المعلومات، وإظهار الخبرة في الحوسبة السحابية وتقنيات البيانات الضخمة. تثبت المشاركة في هذه المسابقة قدرة المرشح على التعامل مع تحديات تكنولوجيا المعلومات والاتصالات المعقدة في العالم الحقيقي."}
+        </p>
+        </div>
+        {/* Cloud Track */}
+        <div className="mt-3 p-2 rounded-lg bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20">
+          <p className="text-blue-400 text-[10px] font-semibold mb-1">
+            {language === 'en' ? "☁️ Cloud Track" : "☁️ مسار الحوسبة السحابية"}
           </p>
-
-          {/* Technologies Tags */}
-          <div className="flex flex-wrap gap-2">
-            {service.tags.map((tag, i) => (
-              <span
-                key={i}
-                className="text-[10px] px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/60 hover:border-accent-purple/50 hover:text-accent-purple transition-colors"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-      ))}
+          <p className="text-white/50 text-[10px] leading-relaxed">
+            {language === 'en'
+              ? "Evaluates theoretical knowledge and hands-on laboratory skills in cloud architecture, services, and management."
+              : "تقييم المعرفة النظرية والمهارات العملية في المختبر في هندسة السحابة والخدمات والإدارة."}
+          </p>
+        </div>
+        
+        {/* Big Data & AI */}
+        <div className="mt-2 p-2 rounded-lg bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
+          <p className="text-purple-400 text-[10px] font-semibold mb-1">
+            {language === 'en' ? "🤖 Big Data & AI" : "🤖 البيانات الضخمة والذكاء الاصطناعي"}
+          </p>
+          <p className="text-white/50 text-[10px] leading-relaxed">
+            {language === 'en'
+              ? "Through the Innovation Competition, participants must design and implement solutions using Big Data, AI (MindSpore, ModelArts), and IoT to solve practical social or business problems."
+              : "من خلال مسابقة الابتكار، يجب على المشاركين تصميم وتنفيذ حلول باستخدام البيانات الضخمة والذكاء الاصطناعي (MindSpore، ModelArts) وإنترنت الأشياء لحل المشكلات الاجتماعية أو التجارية العملية."}
+          </p>
+        </div>
+        
+        {/* Industry Standards */}
+        <div className="mt-2 p-2 rounded-lg bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20">
+          <p className="text-green-400 text-[10px] font-semibold mb-1">
+            {language === 'en' ? "📋 Industry Standards" : "📋 معايير الصناعة"}
+          </p>
+          <p className="text-white/50 text-[10px] leading-relaxed">
+            {language === 'en'
+              ? "The competition is closely tied to Huawei Certifications (HCIA/HCIP/HCIE), ensuring that participants' skills meet rigorous global industry standards for employability."
+              : "ترتبط المسابقة ارتباطاً وثيقاً بشهادات هواوي (HCIA/HCIP/HCIE)، مما يضمن أن مهارات المشاركين تلبي معايير الصناعة العالمية الصارمة للتوظيف."}
+          </p>
+        </div>
+        
+        {/* Tech Stack Tags */}
+        <div className="flex flex-wrap gap-2 mt-3">
+          <span className="text-[9px] px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300">
+            {language === 'en' ? "Cloud Architecture" : "هندسة السحابة"}
+          </span>
+          <span className="text-[9px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">
+            {language === 'en' ? "Big Data" : "البيانات الضخمة"}
+          </span>
+          <span className="text-[9px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">AI</span>
+          <span className="text-[9px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">MindSpore</span>
+          <span className="text-[9px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300">ModelArts</span>
+          <span className="text-[9px] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300">IoT</span>
+          <span className="text-[9px] px-2 py-0.5 rounded-full bg-green-500/20 text-green-300">HCIA/HCIP/HCIE</span>
+        </div>
+        
+        <div className="flex items-center gap-1 mt-3 text-accent-purple text-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span>{language === 'en' ? "View Competition Details" : "عرض تفاصيل المسابقة"}</span>
+          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </div>
+      </motion.a>
     </div>
   </div>
 </section>
 
+
+
       {/* Testimonials Section */}
-      
+
+
+      {/* <section id="testimonials" className="py-32 px-6 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-accent-purple font-bold uppercase tracking-[0.3em] text-[10px]">
+              {t("testSubtitle")}
+            </span>
+            <h2 className="text-5xl md:text-6xl font-bold mt-4 mb-6 tracking-tight">
+              {t("testTitle")}
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto rounded-full" />
+            <p className="text-white/50 max-w-2xl mx-auto mt-6">
+              {language === 'en'
+                ? "What others say about my work"
+                : "ماذا يقول الآخرون عن عملي"}
+            </p>
+          </div>
+
+          {testimonials.length > 0 ? (
+            <Swiper
+              modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
+              effect="coverflow"
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={1}
+              coverflowEffect={{
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+              }}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              navigation={true}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 30,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+              }}
+              className="testimonials-swiper"
+            >
+              {testimonials.map((testimonial, i) => (
+                <SwiperSlide key={i}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="glass-card p-8 rounded-3xl hover:border-accent-purple/30 transition-all group h-full"
+                  >
+                   
+                    <div className="mb-6">
+                      <div className="w-12 h-12 rounded-full bg-accent-purple/10 flex items-center justify-center">
+                        <MessageSquare size={20} className="text-accent-purple" />
+                      </div>
+                    </div>
+
+                   
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(5)].map((_, j) => (
+                        <Star
+                          key={j}
+                          size={16}
+                          className={j < testimonial.rating ? "fill-accent-purple text-accent-purple" : "text-white/20"}
+                        />
+                      ))}
+                    </div>
+
+                  
+                    <p className="text-white/60 leading-relaxed mb-6 text-sm line-clamp-4">
+                      "{testimonial.content}"
+                    </p>
+
+                    {/* Client Info */}
+                    {/* <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-purple/30 to-accent-blue/30 flex items-center justify-center text-white font-bold text-lg">
+                        {testimonial.initials}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-white">{testimonial.name}</h4>
+                        <p className="text-white/40 text-[11px] uppercase tracking-wider">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            
+            <div className="flex flex-col items-center justify-center text-center py-16">
+              <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-white/20 mb-6 border border-white/10">
+                <MessageSquare size={32} />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-white">{t("noTestimonials")}</h3>
+              <p className="text-white/40 max-w-xs text-sm">{t("noTestimonialsDesc")}</p>
+            </div>
+          )}
+        </div>
+
+        
+        <style jsx>{`
+    .testimonials-swiper {
+      padding-bottom: 50px !important;
+    }
+    .testimonials-swiper .swiper-pagination-bullet {
+      background: rgba(139, 92, 246, 0.3);
+      opacity: 1;
+    }
+    .testimonials-swiper .swiper-pagination-bullet-active {
+      background: #8b5cf6;
+    }
+    .testimonials-swiper .swiper-button-prev,
+    .testimonials-swiper .swiper-button-next {
+      color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      backdrop-filter: blur(10px);
+    }
+    .testimonials-swiper .swiper-button-prev:after,
+    .testimonials-swiper .swiper-button-next:after {
+      font-size: 18px;
+    }
+    .testimonials-swiper .swiper-button-prev:hover,
+    .testimonials-swiper .swiper-button-next:hover {
+      background: rgba(139, 92, 246, 0.2);
+    }
+    @media (max-width: 768px) {
+      .testimonials-swiper .swiper-button-prev,
+      .testimonials-swiper .swiper-button-next {
+        display: none;
+      }
+    }
+  `}</style>
+      </section> */} 
+
 
 <section id="testimonials" className="py-32 px-6 relative overflow-hidden">
   <div className="max-w-7xl mx-auto">
@@ -2436,7 +3674,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
       </h2>
       <div className="w-16 h-1 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto rounded-full" />
       <p className="text-white/50 max-w-2xl mx-auto mt-6">
-        {language === 'en' 
+        {language === 'en'
           ? "What others say about my work"
           : "ماذا يقول الآخرون عن عملي"}
       </p>
@@ -2496,7 +3734,7 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
                   <MessageSquare size={20} className="text-accent-purple" />
                 </div>
               </div>
-              
+
               {/* Rating Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, j) => (
@@ -2507,12 +3745,12 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
                   />
                 ))}
               </div>
-              
+
               {/* Content */}
               <p className="text-white/60 leading-relaxed mb-6 text-sm line-clamp-4">
                 "{testimonial.content}"
               </p>
-              
+
               {/* Client Info */}
               <div className="flex items-center gap-4 pt-4 border-t border-white/10">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-purple/30 to-accent-blue/30 flex items-center justify-center text-white font-bold text-lg">
@@ -2528,13 +3766,129 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
         ))}
       </Swiper>
     ) : (
-      // Empty state when no testimonials
-      <div className="flex flex-col items-center justify-center text-center py-16">
-        <div className="w-20 h-20 rounded-full bg-white/5 flex items-center justify-center text-white/20 mb-6 border border-white/10">
-          <MessageSquare size={32} />
-        </div>
-        <h3 className="text-xl font-bold mb-2 text-white">{t("noTestimonials")}</h3>
-        <p className="text-white/40 max-w-xs text-sm">{t("noTestimonialsDesc")}</p>
+      // Coming Soon Cards
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Coming Soon Card 1 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          whileHover={{ y: -8, scale: 1.02 }}
+          className="glass-card p-8 rounded-3xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer text-center"
+        >
+          {/* Coming Soon Badge */}
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-accent-purple to-accent-blue rounded-full">
+            <span className="text-[9px] font-bold text-white uppercase tracking-wider">Coming Soon</span>
+          </div>
+          
+          <div className="mb-6">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+              <MessageSquare size={28} className="text-accent-purple group-hover:text-white transition-colors" />
+            </div>
+          </div>
+
+          {/* Stars Placeholder */}
+          <div className="flex gap-1 justify-center mb-4">
+            {[...Array(5)].map((_, j) => (
+              <Star key={j} size={18} className="text-white/20" />
+            ))}
+          </div>
+
+          <p className="text-white/50 text-sm leading-relaxed mb-6">
+            {language === 'en'
+              ? "Exciting things are happening! Testimonials from satisfied clients will appear here soon."
+              : "أشياء مثيرة تحدث! ستظهر قريباً توصيات من العملاء الراضين."}
+          </p>
+
+          <div className="flex items-center justify-center gap-3 pt-4 border-t border-white/10">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center animate-pulse">
+              <MessageSquare size={20} className="text-accent-purple/50" />
+            </div>
+            <div className="text-left">
+              <h4 className="font-bold text-white/40">Your Name Here</h4>
+              <p className="text-white/20 text-[10px] uppercase tracking-wider">Client Role</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Coming Soon Card 2 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          whileHover={{ y: -8, scale: 1.02 }}
+          className="glass-card p-8 rounded-3xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer text-center relative"
+        >
+          <div className="mb-6">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+              <MessageSquare size={28} className="text-accent-purple group-hover:text-white transition-colors" />
+            </div>
+          </div>
+
+          {/* Stars Placeholder */}
+          <div className="flex gap-1 justify-center mb-4">
+            {[...Array(5)].map((_, j) => (
+              <Star key={j} size={18} className="text-white/20" />
+            ))}
+          </div>
+
+          <p className="text-white/50 text-sm leading-relaxed mb-6">
+            {language === 'en'
+              ? "Be the first to share your experience working with me. I'd love to hear your feedback!"
+              : "كن أول من يشارك تجربته في العمل معي. يسعدني سماع ملاحظاتك!"}
+          </p>
+
+          <div className="flex items-center justify-center gap-3 pt-4 border-t border-white/10">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <MessageSquare size={20} className="text-accent-purple/50" />
+            </div>
+            <div className="text-left">
+              <h4 className="font-bold text-white/40">Be the First</h4>
+              <p className="text-white/20 text-[10px] uppercase tracking-wider">Leave a Review</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Coming Soon Card 3 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          whileHover={{ y: -8, scale: 1.02 }}
+          className="glass-card p-8 rounded-3xl hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer text-center relative"
+        >
+          <div className="mb-6">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+              <MessageSquare size={28} className="text-accent-purple group-hover:text-white transition-colors" />
+            </div>
+          </div>
+
+          {/* Stars Placeholder */}
+          <div className="flex gap-1 justify-center mb-4">
+            {[...Array(5)].map((_, j) => (
+              <Star key={j} size={18} className="text-white/20" />
+            ))}
+          </div>
+
+          <p className="text-white/50 text-sm leading-relaxed mb-6">
+            {language === 'en'
+              ? "Building great relationships with clients. Real testimonials are on their way!"
+              : "بناء علاقات رائعة مع العملاء. الشهادات الحقيقية في الطريق!"}
+          </p>
+
+          <div className="flex items-center justify-center gap-3 pt-4 border-t border-white/10">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center animate-pulse">
+              <MessageSquare size={20} className="text-accent-purple/50" />
+            </div>
+            <div className="text-left">
+              <h4 className="font-bold text-white/40">Coming Soon</h4>
+              <p className="text-white/20 text-[10px] uppercase tracking-wider">Stay Tuned</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
     )}
   </div>
@@ -2576,153 +3930,217 @@ const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>
     }
   `}</style>
 </section>
-      
 
-   
+
+
       {/* Contact Section */}
-<section id="contact" className="py-32 px-6 relative overflow-hidden">
-  <div className="max-w-7xl mx-auto">
-    <div className="text-center mb-16">
-      <span className="text-accent-purple font-bold uppercase tracking-[0.3em] text-[10px]">
-        {language === 'en' ? "Get In Touch" : "تواصل معي"}
-      </span>
-      <h2 className="text-5xl md:text-6xl font-bold mt-4 mb-6 tracking-tight">
-        {language === 'en' ? "Let's Talk" : "دعنا نتحدث"}
-      </h2>
-      <div className="w-16 h-1 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto rounded-full" />
-      <p className="text-white/50 max-w-2xl mx-auto mt-6">
-        {language === 'en' 
-          ? "Have a project in mind or want to discuss the latest in tech? Feel free to reach out."
-          : "هل لديك مشروع في ذهنك أو ترغب في مناقشة أحدث ما في مجال التكنولوجيا؟ لا تتردد في التواصل."}
-      </p>
-    </div>
-
-    <div className="grid lg:grid-cols-2 gap-12">
-      {/* Left Side - Contact Info */}
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="space-y-6"
-      >
-        {/* Email */}
-        <motion.a
-          href="mailto:esraahamaza299@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02, x: 5 }}
-          className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300 cursor-pointer group no-underline"
-        >
-          <div className="w-10 h-10 rounded-full bg-accent-purple/10 flex items-center justify-center group-hover:bg-accent-purple/20 transition-all">
-            <Mail size={18} className="text-accent-purple" />
-          </div>
-          <span className="text-white/80 group-hover:text-accent-purple transition-colors text-sm break-all">
-            esraahamaza299@gmail.com
-          </span>
-        </motion.a>
-
-        {/* WhatsApp */}
-        <motion.a
-          href="https://wa.me/201012847580"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.02, x: 5 }}
-          className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300 cursor-pointer group no-underline"
-        >
-          <div className="w-10 h-10 rounded-full bg-accent-purple/10 flex items-center justify-center group-hover:bg-accent-purple/20 transition-all">
-            <Phone size={18} className="text-accent-purple" />
-          </div>
-          <span className="text-white/80 group-hover:text-accent-purple transition-colors text-sm">
-            +20 101 284 7580
-          </span>
-        </motion.a>
-
-        {/* Location */}
-        <motion.div
-          whileHover={{ scale: 1.02, x: 5 }}
-          className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all duration-300 cursor-pointer group"
-        >
-          <div className="w-10 h-10 rounded-full bg-accent-purple/10 flex items-center justify-center group-hover:bg-accent-purple/20 transition-all">
-            <MapPin size={18} className="text-accent-purple" />
-          </div>
-          <span className="text-white/80 text-sm">
-            {language === 'en' ? 'Cairo, Egypt' : 'القاهرة، مصر'}
-          </span>
-        </motion.div>
-      </motion.div>
-
-      {/* Right Side - Contact Form */}
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="glass-card p-8 rounded-2xl border-white/5"
-      >
-        <form className="space-y-5" action="https://formspree.io/f/your-form-id" method="POST">
-          {/* Your Name Field */}
-          <div>
-            <label className="text-white/60 text-sm font-medium mb-2 block">
-              {language === 'en' ? 'Your Name' : 'الاسم'}
-            </label>
-            <input
-              type="text"
-              name="name"
-              placeholder={language === 'en' ? 'John Doe' : 'أحمد محمد'}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/20 text-sm"
-              required
-            />
+      <section id="contact" className="py-32 px-6 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <span className="text-accent-purple font-bold uppercase tracking-[0.3em] text-[10px]">
+              {language === 'en' ? "LET'S WORK TOGETHER" : "لنعمل معاً"}
+            </span>
+            <h2 className="text-5xl md:text-6xl font-bold mt-4 mb-6 tracking-tight">
+              {language === 'en' ? "Get In Touch" : "تواصل معي"}
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto rounded-full" />
+            <p className="text-white/50 max-w-2xl mx-auto mt-6">
+              {language === 'en'
+                ? "Have a project in mind or looking for a skilled developer? I'm always open to new opportunities and collaborations."
+                : "هل لديك مشروع في ذهنك أو تبحث عن مطور ماهر؟ أنا دائماً منفتحة على الفرص الجديدة والتعاون."}
+            </p>
           </div>
 
-          {/* Your Email Field */}
-          <div>
-            <label className="text-white/60 text-sm font-medium mb-2 block">
-              {language === 'en' ? 'Your Email' : 'بريدك الإلكتروني'}
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder={language === 'en' ? 'john@example.com' : 'ahmed@example.com'}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/20 text-sm"
-              required
-            />
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Left Side - Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: language === 'ar' ? 30 : -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ y: -5, boxShadow: "0 20px 40px -15px rgba(139,92,246,0.3)" }}
+              className="glass-card p-8 rounded-2xl border-white/5 transition-all duration-300"
+            >
+              <h3 className="text-2xl font-bold text-white mb-6">
+                {language === 'en' ? "Let's discuss your project" : "دعنا نناقش مشروعك"}
+              </h3>
+
+              <form className="space-y-5" action="https://formspree.io/f/your-form-id" method="POST">
+                {/* Your Name Field */}
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder={language === 'en' ? "Your Name" : "الاسم"}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/30 text-sm"
+                    required
+                  />
+                </div>
+
+                {/* Your Email Field */}
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={language === 'en' ? "Your Email" : "البريد الإلكتروني"}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/30 text-sm"
+                    required
+                  />
+                </div>
+
+                {/* Subject Field */}
+                <div>
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder={language === 'en' ? "Subject" : "الموضوع"}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/30 text-sm"
+                    required
+                  />
+                </div>
+
+                {/* Your Message Field */}
+                <div>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    placeholder={language === 'en' ? "Your Message" : "رسالتك"}
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/30 text-sm resize-none"
+                    required
+                  />
+                </div>
+
+                {/* Send via WhatsApp Button */}
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(34,197,94,0.5)" }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-3.5 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold uppercase tracking-[0.2em] text-[11px] rounded-xl transition-all duration-300 mb-3"
+                >
+                  {language === 'en' ? "Send via WhatsApp" : "إرسال عبر واتساب"}
+                </motion.button>
+
+                {/* Send via Email Button */}
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(139,92,246,0.5)" }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-3.5 bg-gradient-to-r from-accent-purple to-accent-blue text-white font-bold uppercase tracking-[0.2em] text-[11px] rounded-xl transition-all duration-300"
+                >
+                  {language === 'en' ? "Send via Email" : "إرسال عبر البريد"}
+                </motion.button>
+              </form>
+            </motion.div>
+
+            {/* Right Side - Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: language === 'ar' ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="space-y-6"
+            >
+              {/* Email */}
+              <motion.a
+                href="mailto:esraahamaza299@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02, x: language === 'ar' ? -5 : 5, boxShadow: "0 10px 30px -10px rgba(139,92,246,0.3)" }}
+                className="flex items-center gap-4 p-4 rounded-xl glass-card hover:border-accent-purple/30 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-full bg-accent-purple/10 flex items-center justify-center group-hover:bg-accent-purple/20 transition-all">
+                  <Mail size={20} className="text-accent-purple" />
+                </div>
+                <div>
+                  <p className="text-white/40 text-[10px] uppercase tracking-wider mb-0.5">
+                    {language === 'en' ? "Email" : "البريد الإلكتروني"}
+                  </p>
+                  <p className="text-white/80 group-hover:text-accent-purple transition-colors text-sm">
+                    esraahamaza299@gmail.com
+                  </p>
+                </div>
+              </motion.a>
+
+              {/* Phone/WhatsApp */}
+              <motion.a
+                href="https://wa.me/201012847580"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02, x: language === 'ar' ? -5 : 5, boxShadow: "0 10px 30px -10px rgba(34,197,94,0.3)" }}
+                className="flex items-center gap-4 p-4 rounded-xl glass-card hover:border-green-500/30 transition-all duration-300 group cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-all">
+                  <Phone size={20} className="text-green-400" />
+                </div>
+                <div>
+                  <p className="text-white/40 text-[10px] uppercase tracking-wider mb-0.5">
+                    {language === 'en' ? "Phone/WhatsApp" : "واتساب"}
+                  </p>
+                  <p className="text-white/80 group-hover:text-green-400 transition-colors text-sm">
+                    01012847580
+                  </p>
+                </div>
+              </motion.a>
+
+
+
+              {/* WhatsApp Info Message */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                whileHover={{ scale: 1.02, boxShadow: "0 10px 30px -10px rgba(34,197,94,0.2)" }}
+                className="glass-card p-4 rounded-xl border border-green-500/20 bg-green-500/5 transition-all duration-300"
+              >
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-green-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div>
+                    <p className="text-white/60 text-xs leading-relaxed">
+                      {language === 'en'
+                        ? "WhatsApp opens with your message pre-filled & ready to send."
+                        : "يتم فتح واتساب مع رسالتك المعدة مسبقاً وجاهزة للإرسال."}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Email Info Message */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                whileHover={{ scale: 1.02, boxShadow: "0 10px 30px -10px rgba(139,92,246,0.2)" }}
+                className="glass-card p-4 rounded-xl border border-accent-purple/20 bg-accent-purple/5 transition-all duration-300"
+              >
+                <div className="flex items-start gap-3">
+                  <svg className="w-5 h-5 text-accent-purple mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <div>
+                    <p className="text-white/60 text-xs leading-relaxed">
+                      {language === 'en'
+                        ? "Email opens Gmail compose in a new tab."
+                        : "يتم فتح البريد الإلكتروني في علامة تبويب جديدة."}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+
+            </motion.div>
           </div>
+        </div>
 
-          {/* Your Message Field */}
-          <div>
-            <label className="text-white/60 text-sm font-medium mb-2 block">
-              {language === 'en' ? 'Your Message' : 'رسالتك'}
-            </label>
-            <textarea
-              name="message"
-              rows={4}
-              placeholder={language === 'en' ? 'Tell me about your project...' : 'أخبرني عن مشروعك...'}
-              className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/20 text-sm resize-none"
-              required
-            />
-          </div>
+        {/* Decorative Background Elements */}
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent-purple/20 rounded-full blur-[100px] -z-10" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-blue/20 rounded-full blur-[100px] -z-10" />
+      </section>
 
-          {/* Send Button */}
-          <motion.button
-            type="submit"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full py-3.5 bg-gradient-to-r from-accent-purple to-accent-blue text-white font-bold uppercase tracking-[0.2em] text-[11px] rounded-xl hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all"
-          >
-            {language === 'en' ? 'Send Message' : 'إرسال الرسالة'}
-          </motion.button>
-        </form>
-      </motion.div>
-    </div>
-  </div>
-
-  {/* Decorative Background Elements */}
-  <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent-purple/20 rounded-full blur-[100px] -z-10" />
-  <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-blue/20 rounded-full blur-[100px] -z-10" />
-</section>
-
-      
       {/* Project Modal */}
       <AnimatePresence>
         {selectedProject && (

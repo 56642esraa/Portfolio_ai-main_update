@@ -17,6 +17,129 @@ import CV from './pages/CV';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 
+// Animated Logo Component - Bigger React Style with EA
+const AnimatedLogo = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div 
+      className="relative flex items-center justify-center group cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+     {/* React-style rotating rings background - Bigger */}
+<motion.div
+  className="absolute inset-0"
+  animate={{ rotate: isHovered ? 360 : 0 }}
+  transition={{ duration: 2, repeat: isHovered ? Infinity : 0, ease: "linear" }}
+>
+  <svg className="w-full h-full" viewBox="0 0 120 120">
+    {/* Outer orbit rings - thicker and more visible */}
+    <ellipse 
+      cx="60" cy="60" rx="50" ry="20" 
+      fill="none" 
+      stroke="rgba(139, 92, 246, 0.5)" 
+      strokeWidth="3"
+      transform="rotate(0, 60, 60)"
+    />
+    <ellipse 
+      cx="60" cy="60" rx="50" ry="20" 
+      fill="none" 
+      stroke="rgba(139, 92, 246, 0.5)" 
+      strokeWidth="3"
+      transform="rotate(60, 60, 60)"
+    />
+    <ellipse 
+      cx="60" cy="60" rx="50" ry="20" 
+      fill="none" 
+      stroke="rgba(139, 92, 246, 0.5)" 
+      strokeWidth="3"
+      transform="rotate(120, 60, 60)"
+    />
+    
+    {/* Middle decorative rings */}
+    <ellipse 
+      cx="60" cy="60" rx="35" ry="14" 
+      fill="none" 
+      stroke="rgba(59, 130, 246, 0.35)" 
+      strokeWidth="2"
+      transform="rotate(30, 60, 60)"
+    />
+    <ellipse 
+      cx="60" cy="60" rx="35" ry="14" 
+      fill="none" 
+      stroke="rgba(59, 130, 246, 0.35)" 
+      strokeWidth="2"
+      transform="rotate(90, 60, 60)"
+    />
+    <ellipse 
+      cx="60" cy="60" rx="35" ry="14" 
+      fill="none" 
+      stroke="rgba(59, 130, 246, 0.35)" 
+      strokeWidth="2"
+      transform="rotate(150, 60, 60)"
+    />
+    
+    {/* Inner small rings */}
+    <ellipse 
+      cx="60" cy="60" rx="20" ry="8" 
+      fill="none" 
+      stroke="rgba(139, 92, 246, 0.25)" 
+      strokeWidth="1.5"
+      transform="rotate(15, 60, 60)"
+    />
+    <ellipse 
+      cx="60" cy="60" rx="20" ry="8" 
+      fill="none" 
+      stroke="rgba(139, 92, 246, 0.25)" 
+      strokeWidth="1.5"
+      transform="rotate(75, 60, 60)"
+    />
+    <ellipse 
+      cx="60" cy="60" rx="20" ry="8" 
+      fill="none" 
+      stroke="rgba(139, 92, 246, 0.25)" 
+      strokeWidth="1.5"
+      transform="rotate(135, 60, 60)"
+    />
+  </svg>
+</motion.div>
+
+      {/* EA Text with React-style dot - Bigger */}
+      <div className="relative flex items-center justify-center gap-1.5 z-10">
+        <motion.span 
+          className="text-3xl md:text-4xl font-black tracking-tight text-gradient-mixed"
+          animate={{ 
+            scale: isHovered ? [1, 1.2, 1] : 1,
+            rotate: isHovered ? [0, 10, -10, 0] : 0
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          E
+        </motion.span>
+        {/* <motion.div
+          animate={{ 
+            scale: isHovered ? [1, 2, 1] : 1,
+            backgroundColor: isHovered ? "#8b5cf6" : "rgba(139, 92, 246, 0.6)"
+          }}
+          transition={{ duration: 0.3, repeat: isHovered ? Infinity : 0, repeatDelay: 0.5 }}
+          className="w-2 h-2 rounded-full bg-accent-purple/60"
+        /> */}
+        <motion.span 
+          className="text-3xl md:text-4xl font-black tracking-tight text-gradient-mixed"
+          animate={{ 
+            scale: isHovered ? [1, 1.2, 1] : 1,
+            rotate: isHovered ? [0, -10, 10, 0] : 0
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          A
+        </motion.span>
+      </div>
+    </div>
+  );
+};
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,6 +161,7 @@ const Navbar = () => {
     { name: t('experience'), href: '/#experience' },
     { name: t('services'), href: '/#services' },
     { name: t('projects'), href: '/#projects' },
+    { name: t('achievements'), href: '/#achievements' },
     { name: t('testimonials'), href: '/#testimonials' }, 
   ];
   const contactHref = '/#contact';
@@ -310,128 +434,189 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-12 px-6 border-t border-white/5 bg-gradient-to-b from-transparent to-white/5">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Footer Content */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
-          {/* Logo Section */}
+    <footer className="py-16 px-6 border-t border-white/10 bg-gradient-to-b from-transparent to-white/5">
+      <div className="max-w-6xl mx-auto">
+        {/* Top Section - 3 Columns: LET'S WORK | Logo | WHO AM I */}
+        <div className="grid md:grid-cols-3 gap-8 items-center mb-12">
+          {/* LEFT COLUMN - LET'S WORK TOGETHER */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-center md:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className={language === 'ar' ? 'text-right' : 'text-left'}
+          >
+            <h3 className="text-accent-purple font-bold text-sm uppercase tracking-[0.3em] mb-3">
+              {language === 'en' ? "LET'S WORK TOGETHER!" : "لنعمل معاً!"}
+            </h3>
+            <p className="text-white/60 text-sm leading-relaxed">
+              {language === 'en'
+                ? "Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions."
+                : "لا تتردد في التواصل معي. أنا دائماً منفتح لمناقشة المشاريع الجديدة والأفكار الإبداعية أو الفرص لأكون جزءاً من رؤيتك."}
+            </p>
+          </motion.div>
+
+          {/* CENTER - Animated Logo with HTML Tags */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 260, 
+              damping: 20,
+              delay: 0.2
+            }}
+            whileHover={{ 
+              scale: 1.1,
+              rotate: 360,
+              transition: { duration: 0.5, type: "spring", stiffness: 300 }
+            }}
+            className="flex justify-center"
           >
             <Link 
               to="/" 
-              className="inline-flex items-center justify-center w-14 h-14 rounded-full border border-accent-purple/40 bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 hover:scale-105 transition-transform duration-300"
+              className="inline-flex items-center justify-center gap-1 px-4 py-3 rounded-2xl border border-accent-purple/40 bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 hover:border-accent-purple/70 transition-all duration-300 shadow-lg hover:shadow-accent-purple/30"
             >
-              <span className="text-xl font-black tracking-tight text-gradient-mixed">EA</span>
+              {/* <span className="text-accent-purple text-lg font-mono">&lt;</span> */}
+              {/* <span className="text-xl font-black tracking-tight text-gradient-mixed">EA</span> */}
+              {/* <span className="text-accent-purple text-lg font-mono">/&gt;</span> */}
+              <AnimatedLogo />
             </Link>
           </motion.div>
 
-          {/* Social Links with Icons and Labels */}
-          <div className="flex flex-wrap justify-center gap-4">
-            <motion.a
-              href="https://github.com/56642esraa"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -5 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-accent-purple/50 hover:bg-accent-purple/10 transition-all duration-300"
-            >
-              <Github size={16} />
-              <span className="text-xs">GitHub</span>
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/esra2ali/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -5 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-accent-purple/50 hover:bg-accent-purple/10 transition-all duration-300"
-            >
-              <Linkedin size={16} />
-              <span className="text-xs">LinkedIn</span>
-            </motion.a>
-            <motion.a
-              href="https://wa.me/201012847580"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -5 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-green-500/50 hover:bg-green-500/10 transition-all duration-300"
-            >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-              </svg>
-              <span className="text-xs">WhatsApp</span>
-            </motion.a>
-            <motion.a
-              href="mailto:esraahamaza299@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -5 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-accent-purple/50 hover:bg-accent-purple/10 transition-all duration-300"
-            >
-              <Mail size={16} />
-              <span className="text-xs">Email</span>
-            </motion.a>
-          </div>
+         
+        {/* Left side - Bigger Animated React-style Logo */}
+{/* <motion.div
+  className="hidden md:flex fixed left-8 top-6 items-center justify-center w-16 h-16 rounded-full border border-accent-purple/40 bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 backdrop-blur-xl z-50"
+  whileHover={{ scale: 1.05, rotate: 3 }}
+  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+>
+  <Link
+    to="/"
+    onClick={() => handleLinkClick('/')}
+    className="flex items-center justify-center w-full h-full"
+    aria-label="Home"
+  >
+    <AnimatedLogo />
+  </Link>
+</motion.div> */}
 
-          {/* Like Button with Counter */}
-          <motion.button
-            onClick={handleLike}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`flex items-center gap-2 px-5 py-2 rounded-full transition-all duration-300 ${
-              isLiked 
-                ? 'bg-gradient-to-r from-accent-purple/20 to-accent-blue/20 border border-accent-purple/50 text-accent-purple'
-                : 'bg-gradient-to-r from-accent-purple/10 to-accent-blue/10 border border-accent-purple/30 text-white/80 hover:text-white'
-            }`}
-          >
-            <motion.div
-              animate={isLiked ? { scale: [1, 1.2, 1] } : {}}
-              transition={{ duration: 0.3 }}
-            >
-              <Heart size={16} className={isLiked ? 'fill-accent-purple' : ''} />
-            </motion.div>
-            <span className="text-xs font-medium">{language === 'en' ? 'Like' : 'إعجاب'}</span>
-            <span className="text-xs text-white/40">{likeCount}</span>
-          </motion.button>
+          {/* RIGHT COLUMN - WHO AM I */}
+         {/* RIGHT COLUMN - WHO AM I */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.1 }}
+  className={language === 'ar' ? 'text-left md:text-left' : 'text-left md:text-right'}
+>
+  <h3 className="text-accent-purple font-bold text-sm uppercase tracking-[0.3em] mb-3">
+    {language === 'en' ? "WHO AM I?" : "من أنا؟"}
+  </h3>
+  <p className="text-white/60 text-sm leading-relaxed">
+    {language === 'en' ? (
+      <>
+        I'm a <span className="text-white font-medium">Full-Stack Developer & WordPress Expert</span>, 
+        passionate and dedicated to my work. I have acquired the skills and knowledge necessary 
+        to design and develop user-friendly, visually appealing, and scalable digital experiences 
+        that make your project a success.
+      </>
+    ) : (
+      <>
+        أنا <span className="text-white font-medium">مطورة واجهات كاملة وخبيرة ووردبريس</span>، 
+        شغوفة ومخلصة لعملي. لقد اكتسبت المهارات والمعرفة اللازمة لتصميم وتطوير تجارب رقمية 
+        سهلة الاستخدام وجذابة بصرياً وقابلة للتوسع تجعل مشروعك ناجحاً.
+      </>
+    )}
+  </p>
+</motion.div>
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-6" />
+        {/* Social Links Section */}
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <motion.a
+            href="https://github.com/56642esraa"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -5, scale: 1.05 }}
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-accent-purple/50 hover:bg-accent-purple/10 transition-all duration-300"
+          >
+            <Github size={16} />
+            <span className="text-xs">GitHub</span>
+          </motion.a>
+          <motion.a
+            href="https://www.linkedin.com/in/esra2ali/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -5, scale: 1.05 }}
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-accent-purple/50 hover:bg-accent-purple/10 transition-all duration-300"
+          >
+            <Linkedin size={16} />
+            <span className="text-xs">LinkedIn</span>
+          </motion.a>
+          <motion.a
+            href="https://wa.me/201012847580"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -5, scale: 1.05 }}
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-green-500/50 hover:bg-green-500/10 transition-all duration-300"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+            </svg>
+            <span className="text-xs">WhatsApp</span>
+          </motion.a>
+          <motion.a
+            href="mailto:esraahamaza299@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -5, scale: 1.05 }}
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:border-accent-purple/50 hover:bg-accent-purple/10 transition-all duration-300"
+          >
+            <Mail size={16} />
+            <span className="text-xs">Email</span>
+          </motion.a>
+        </div>
 
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-center md:text-left rtl:md:text-right">
-            <h3 className="text-lg font-bold mb-1 text-gradient-mixed">ESRAA ALI</h3>
-            <p className="text-white/30 text-[10px] uppercase tracking-widest">{t('role')}</p>
-          </div>
+       
+
+        {/* Divider with animation */}
+        <motion.div 
+          initial={{ width: 0, opacity: 0 }}
+          whileInView={{ width: "100%", opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-6"
+        />
+
+        {/* Bottom Section - Privacy, Terms, Copyright */}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6">
           
-          <div className="flex gap-4">
-            <Link to="/privacy" className="text-white/20 hover:text-white/40 transition-colors text-[10px] uppercase tracking-widest">
-              Privacy
-            </Link>
-            <Link to="/terms" className="text-white/20 hover:text-white/40 transition-colors text-[10px] uppercase tracking-widest">
-              Terms
-            </Link>
-          </div>
-
-          <p className="text-white/20 text-[10px] uppercase tracking-widest">
-            © 2026 {t('rights')}
-          </p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="text-white/20 text-[10px] uppercase tracking-widest"
+          >
+            © 2026 Esraa Ali. {language === 'en' ? 'Portfolio.' : 'بورتفوليو.'}
+          </motion.p>
         </div>
       </div>
     </footer>
   );
 };
+
 
 function AppContent() {
   const { theme } = useTheme();

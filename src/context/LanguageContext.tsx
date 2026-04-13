@@ -87,6 +87,7 @@ const translations: Record<Language, Record<string, string>> = {
     languages: "Languages",
     native: "Native",
     professional: "Professional",
+    achievements: "Achievements",
     testimonials: "Testimonials",
   },
   ar: {
@@ -173,6 +174,7 @@ const translations: Record<Language, Record<string, string>> = {
     fullStack: "التطوير الكامل",
     softSkills: "المهارات الشخصية", 
     softSkillsCategory: "المهارات الشخصية", 
+    achievements: "الإنجازات",
     testimonials: "التوصيات",
   },
 };
