@@ -14,6 +14,7 @@ import {
 import Home from './pages/Home';
 import Pricing from './pages/Pricing';
 import CV from './pages/CV';
+import ContactFormPage from './pages/ContactFormPage';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 
@@ -153,6 +154,15 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: t('home'), href: '/' },
     { name: t('about'), href: '/#about' },
@@ -185,128 +195,43 @@ const Navbar = () => {
     return location.pathname === href;
   };
 
-
-
-  // Add this animated logo component inside your Navbar component or outside as a separate component
-const AnimatedLogo = () => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <div 
-      className="relative flex items-center justify-center group cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Letters Container */}
-      <div className="relative flex items-baseline">
-        {/* Letter E */}
-        <motion.span 
-          className="text-xl font-black tracking-tight text-gradient-mixed"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-        >
-          E
-        </motion.span>
-        
-        {/* Letter A */}
-        <motion.span 
-          className="text-xl font-black tracking-tight text-gradient-mixed"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.3, delay: 0.2 }}
-        >
-          A
-        </motion.span>
-      </div>
-
-      {/* Amazon-style Smile Arrow (drawing animation) */}
-      <motion.div
-        className="absolute -bottom-3 left-0 right-0 flex justify-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.2 }}
-      >
-        <svg 
-          width="28" 
-          height="8" 
-          viewBox="0 0 28 8" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-          className="text-accent-purple"
-        >
-          {/* Curved smile line */}
-          <motion.path
-            d="M2 5.5C7 2.5 11 1.5 14 1.5C17 1.5 21 2.5 26 5.5"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            fill="none"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ 
-              pathLength: isHovered ? 1 : 0, 
-              opacity: isHovered ? 1 : 0 
-            }}
-            transition={{ duration: 0.6, ease: "easeInOut", delay: 0.1 }}
-          />
-          
-          {/* Arrow tip */}
-          <motion.path
-            d="M23.5 4L26 5.5L24 7"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            initial={{ opacity: 0, pathLength: 0 }}
-            animate={{ 
-              opacity: isHovered ? 1 : 0, 
-              pathLength: isHovered ? 1 : 0 
-            }}
-            transition={{ duration: 0.4, delay: 0.5 }}
-          />
-        </svg>
-      </motion.div>
-    </div>
-  );
-};
-
 return (
-  <div className="fixed top-6 left-0 w-full z-50 px-6">
-    {/* Left side - Animated Logo */}
-    <motion.div
-      className="hidden md:flex fixed left-8 top-6 items-center justify-center w-14 h-14 rounded-full border border-accent-purple/40 bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 backdrop-blur-xl z-50"
-      whileHover={{ scale: 1.05, rotate: 3 }}
-      transition={{ type: "spring", stiffness: 300, damping: 15 }}
-    >
-      <Link
-        to="/"
-        onClick={() => handleLinkClick('/')}
-        className="flex items-center justify-center w-full h-full"
-        aria-label="Home"
-      >
-        <AnimatedLogo />
-      </Link>
-    </motion.div>
-
-    {/* Centered Navbar */}
-    <div className="flex justify-center">
-      <motion.nav 
-        initial={{ y: -100, opacity: 0 }}
+  <div className="fixed top-4 inset-x-0 z-50 px-4 sm:px-6">
+    <div className="max-w-7xl mx-auto">
+      <motion.nav
+        initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="bg-[#0a0a1a]/80 backdrop-blur-xl border border-white/10 rounded-full px-6 py-2 flex items-center gap-2 shadow-2xl"
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className={`relative flex items-center justify-between gap-3 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-xl px-3 sm:px-4 py-2 ${
+          isScrolled ? 'bg-[#0a0a1a]/90' : 'bg-[#0a0a1a]/70'
+        }`}
       >
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-1">
+        {/* Left: Logo */}
+        <motion.div
+          className="flex items-center justify-center w-12 h-12 rounded-full border border-accent-purple/40 bg-gradient-to-br from-accent-purple/20 to-accent-blue/20"
+          whileHover={{ scale: 1.05, rotate: 3 }}
+          transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        >
+          <Link
+            to="/"
+            onClick={() => handleLinkClick('/')}
+            className="flex items-center justify-center w-full h-full"
+            aria-label="Home"
+          >
+            <AnimatedLogo />
+          </Link>
+        </motion.div>
+
+        {/* Center: Desktop links */}
+        <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.href}
               onClick={() => handleLinkClick(link.href)}
               className={`px-4 py-2 text-[13px] font-medium transition-all rounded-full ${
-                isActive(link.href) 
-                  ? 'bg-gradient-to-r from-accent-purple/20 to-accent-blue/20 text-white border border-accent-purple/30' 
+                isActive(link.href)
+                  ? 'bg-gradient-to-r from-accent-purple/20 to-accent-blue/20 text-white border border-accent-purple/30'
                   : 'text-white/60 hover:text-white'
               }`}
             >
@@ -315,55 +240,110 @@ return (
           ))}
         </div>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-white p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        {/* Right: Actions */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Contact button (desktop/tablet) */}
+          <motion.div className="hidden sm:block" whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              to="/contact"
+              onClick={() => handleLinkClick('/contact')}
+              className="inline-flex px-4 py-2.5 rounded-full font-bold text-sm border border-sky-400/80 text-sky-200 hover:text-white hover:border-sky-300 hover:bg-sky-500/15 shadow-lg shadow-sky-500/20 transition-all duration-200 whitespace-nowrap"
+            >
+              {language === 'en' ? 'Contact Me' : 'تواصل معي'}
+            </Link>
+          </motion.div>
+
+          {/* Theme toggle */}
+          <motion.button
+            onClick={toggleTheme}
+            className="w-10 h-10 rounded-full border border-accent-purple/30 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/5 transition-all"
+            whileHover={{ scale: 1.05, rotate: 180 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </motion.button>
+
+          {/* Language toggle */}
+          <motion.button
+            onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
+            className="w-10 h-10 rounded-full border border-accent-purple/30 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/5 transition-all font-bold text-xs"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label={language === 'en' ? 'Switch language to Arabic' : 'Switch language to English'}
+          >
+            {language === 'en' ? 'AR' : 'EN'}
+          </motion.button>
+
+          {/* Mobile menu toggle */}
+          <button
+            className="lg:hidden text-white p-2 rounded-xl hover:bg-white/5 transition-colors"
+            onClick={() => setIsMobileMenuOpen((v) => !v)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <>
+              <motion.button
+                type="button"
+                className="fixed inset-0 bg-black/40 backdrop-blur-[2px]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close menu overlay"
+              />
+              <motion.div
+                id="mobile-menu"
+                initial={{ opacity: 0, y: -12, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                transition={{ duration: 0.18 }}
+                className={`absolute left-0 right-0 top-[calc(100%+10px)] rounded-2xl border border-white/10 bg-[#0a0a1a]/95 shadow-2xl backdrop-blur-xl overflow-hidden ${
+                  language === 'ar' ? 'text-right' : 'text-left'
+                }`}
+              >
+                <div className="p-3 sm:p-4">
+                  <div className="grid gap-1">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        to={link.href}
+                        onClick={() => handleLinkClick(link.href)}
+                        className={`px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
+                          isActive(link.href)
+                            ? 'bg-gradient-to-r from-accent-purple/20 to-accent-blue/20 text-white border border-accent-purple/30'
+                            : 'text-white/70 hover:text-white hover:bg-white/5'
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-white/10">
+                    <Link
+                      to="/contact"
+                      onClick={() => handleLinkClick('/contact')}
+                      className="flex items-center justify-center w-full px-4 py-3 rounded-xl font-bold text-sm border border-sky-400/80 text-sky-200 hover:text-white hover:border-sky-300 hover:bg-sky-500/15 transition-colors"
+                    >
+                      {language === 'en' ? 'Contact Me' : 'تواصل معي'}
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </motion.nav>
-      
     </div>
-
-    {/* Right side - Contact Button, Theme, Language */}
-    <div className="fixed right-8 top-6 flex items-center gap-3 z-50">
-      {/* Contact Me Button */}
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <Link
-          to={contactHref}
-          onClick={() => handleLinkClick(contactHref)}
-          className="inline-flex px-4 py-2 rounded-full font-bold text-xs border border-cyan-400/70 text-cyan-300 hover:bg-cyan-400/10 transition-colors whitespace-nowrap bg-[#0a0a1a]/80 backdrop-blur-xl"
-        >
-          {language === 'en' ? 'Contact Me' : 'تواصل معي'}
-        </Link>
-      </motion.div>
-
-      {/* Theme Toggle */}
-      <motion.button
-        onClick={toggleTheme}
-        className="w-10 h-10 rounded-full border border-accent-purple/30 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/5 transition-all bg-[#0a0a1a]/80 backdrop-blur-xl"
-        whileHover={{ scale: 1.1, rotate: 180 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-      </motion.button>
-      
-      {/* Language Toggle */}
-      <motion.button
-        onClick={() => setLanguage(language === 'en' ? 'ar' : 'en')}
-        className="w-10 h-10 rounded-full border border-accent-purple/30 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/5 transition-all font-bold text-xs bg-[#0a0a1a]/80 backdrop-blur-xl"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-      >
-        {language === 'en' ? 'AR' : 'EN'}
-      </motion.button>
-    </div>
-
-  
   </div>
 );
 };
@@ -628,6 +608,7 @@ function AppContent() {
       <div className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<ContactFormPage />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/cv" element={<CV />} />
         </Routes>

@@ -172,7 +172,6 @@ const translations: Record<Language, Record<string, string>> = {
     backEnd: "الواجهة الخلفية",
     frontEnd: "الواجهة الأمامية",
     fullStack: "التطوير الكامل",
-    softSkills: "المهارات الشخصية", 
     softSkillsCategory: "المهارات الشخصية", 
     achievements: "الإنجازات",
     testimonials: "التوصيات",

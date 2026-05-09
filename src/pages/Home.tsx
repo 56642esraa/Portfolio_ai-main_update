@@ -111,7 +111,7 @@ import {
 import { Link } from "react-router-dom";
 import { Badge, SectionHeading } from "../components/Shared";
 import { useLanguage } from "../context/LanguageContext";
-
+// import { useForm, ValidationError } from '@formspree/react';
 const Home = () => {
   const { t, language } = useLanguage();
   const [activeSkillTab, setActiveSkillTab] = useState<
@@ -125,7 +125,73 @@ const Home = () => {
     any | null
   >(null);
 
-  // Add near other useState declarations in Home component
+
+
+
+
+
+  const [contactName, setContactName] = useState("");
+  const [contactEmail, setContactEmail] = useState("");
+  const [contactMessage, setContactMessage] = useState("");
+  const [contactStatus, setContactStatus] = useState<"idle" | "success" | "error">("idle");
+  const [contactErrors, setContactErrors] = useState<string[]>([]);
+  const whatsappNumber = "201012847580";
+
+  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const errors: string[] = [];
+
+    if (!contactName.trim()) {
+      errors.push(
+        language === "en" ? "Please enter your name." : "???? ????? ?????."
+      );
+    }
+
+    if (!contactEmail.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail)) {
+      errors.push(
+        language === "en"
+          ? "Please enter a valid email address."
+          : "???? ????? ???? ???????? ????."
+      );
+    }
+
+    if (!contactMessage.trim()) {
+      errors.push(
+        language === "en" ? "Please write a short message." : "???? ????? ????? ?????."
+      );
+    }
+
+    if (contactMessage.length > 500) {
+      errors.push(
+        language === "en"
+          ? "Message must be 500 characters or less."
+          : "??? ??? ?????? ??????? 500 ?????."
+      );
+    }
+
+    if (errors.length) {
+      setContactErrors(errors);
+      setContactStatus("error");
+      return;
+    }
+
+    const messageBody = language === "en"
+      ? `Hello! I am contacting you from the portfolio form.\nMy name is ${contactName}.\nEmail: ${contactEmail}.\n\n${contactMessage}`
+      : `مرحبًا! أتواصل معك من نموذج التواصل.\nاسمي ${contactName}.\nالبريد الإلكتروني: ${contactEmail}.\n\n${contactMessage}`;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageBody)}`;
+    window.open(whatsappUrl, "_blank");
+
+    setContactErrors([]);
+    setContactStatus("success");
+    setContactName("");
+    setContactEmail("");
+    setContactMessage("");
+
+    window.setTimeout(() => setContactStatus("idle"), 5000);
+  };
+
   const [activeEduTab, setActiveEduTab] = useState<'education' | 'certifications'>('education');
 
   const [displayText, setDisplayText] = useState("");
@@ -798,49 +864,52 @@ const Home = () => {
     }
   ];
 
-  const contactInfo =
-    language === "en"
-      ? [
-        {
-          icon: <Mail size={20} />,
-          title: "Email",
-          value: "esraahamaza299@gmail.com",
-          href: "mailto:esraahamaza299@gmail.com",
-        },
-        {
-          icon: <Phone size={20} />,
-          title: "Phone",
-          value: "01012847580",
-          href: "tel:01012847580",
-        },
-        {
-          icon: <Globe size={20} />,
-          title: "Location",
-          value: "Cairo, Egypt",
-          href: "#",
-        },
-      ]
-      : [
-        {
-          icon: <Mail size={20} />,
-          title: "البريد الإلكتروني",
-          value: "esraahamaza299@gmail.com",
-          href: "mailto:esraahamaza299@gmail.com",
-        },
-        {
-          icon: <Phone size={20} />,
-          title: "الهاتف",
-          value: "01012847580",
-          href: "tel:01012847580",
-        },
-        {
-          icon: <Globe size={20} />,
-          title: "الموقع",
-          value: "القاهرة، مصر",
-          href: "#",
-        },
-      ];
+  // const contactInfo =
+  //   language === "en"
+  //     ? [
+  //       {
+  //         icon: <Mail size={20} />,
+  //         title: "Email",
+  //         value: "esraahamaza299@gmail.com",
+  //         href: "mailto:esraahamaza299@gmail.com",
+  //       },
+  //       {
+  //         icon: <Phone size={20} />,
+  //         title: "Phone",
+  //         value: "01012847580",
+  //         href: "tel:01012847580",
+  //       },
+  //       {
+  //         icon: <Globe size={20} />,
+  //         title: "Location",
+  //         value: "Cairo, Egypt",
+  //         href: "#",
+  //       },
+  //     ]
+  //     : [
+  //       {
+  //         icon: <Mail size={20} />,
+  //         title: "البريد الإلكتروني",
+  //         value: "esraahamaza299@gmail.com",
+  //         href: "mailto:esraahamaza299@gmail.com",
+  //       },
+  //       {
+  //         icon: <Phone size={20} />,
+  //         title: "الهاتف",
+  //         value: "01012847580",
+  //         href: "tel:01012847580",
+  //       },
+  //       {
+  //         icon: <Globe size={20} />,
+  //         title: "الموقع",
+  //         value: "القاهرة، مصر",
+  //         href: "#",
+  //       },
+  //     ];
 
+
+
+      
   const ProjectModal = ({
     project,
     onClose,
@@ -2280,7 +2349,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiNodedotjs className="w-7 h-7 text-[#339933] group-hover:text-white transition-colors duration-300" />
+                    <span className="text-[#339933] group-hover:text-white transition-colors duration-300">
+                      <SiNodedotjs size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Node.js / Express</h3>
                 </motion.div>
@@ -2293,7 +2364,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiMongodb className="w-7 h-7 text-[#47A248] group-hover:text-white transition-colors duration-300" />
+                    <span className="text-[#47A248] group-hover:text-white transition-colors duration-300">
+                      <SiMongodb size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'Databases' : 'قواعد البيانات'}
@@ -2308,7 +2381,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiAuth0 className="w-7 h-7 text-[#EB5424] group-hover:text-white transition-colors duration-300" />
+                    <span className="text-[#EB5424] group-hover:text-white transition-colors duration-300">
+                      <SiAuth0 size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'Authentication & Security' : 'المصادقة والأمان'}
@@ -2323,7 +2398,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiPostman className="w-7 h-7 text-[#FF6C37] group-hover:text-white transition-colors duration-300" />
+                    <span className="text-[#FF6C37] group-hover:text-white transition-colors duration-300">
+                      <SiPostman size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'API Integration' : 'تكامل واجهات API'}
@@ -2338,7 +2415,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiCodeigniter className="w-7 h-7 text-[#EF4223] group-hover:text-white transition-colors duration-300" />
+                    <span className="text-[#EF4223] group-hover:text-white transition-colors duration-300">
+                      <SiCodeigniter size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'Design Patterns' : 'أنماط التصميم'}
@@ -2353,7 +2432,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiRedis className="w-7 h-7 text-[#FF4438] group-hover:text-white transition-colors duration-300" />
+                    <span className="text-[#FF4438] group-hover:text-white transition-colors duration-300">
+                      <SiRedis size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'Redis & Caching' : 'Redis والتخزين المؤقت'}
@@ -2368,7 +2449,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiDocker className="w-7 h-7 text-[#2496ED] group-hover:text-white transition-colors duration-300" />
+                    <span className="text-[#2496ED] group-hover:text-white transition-colors duration-300">
+                      <SiDocker size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'Docker & Containerization' : 'Docker والحاويات'}
@@ -2383,7 +2466,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiServerless className="w-7 h-7 text-[#FD5750] group-hover:text-white transition-colors duration-300" />
+                    <span className="text-[#FD5750] group-hover:text-white transition-colors duration-300">
+                      <SiServerless size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'Microservices' : 'الخدمات المصغرة'}
@@ -2409,7 +2494,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <FaReact className="w-7 h-7 text-[#61DAFB]" />
+                    <span className="text-[#61DAFB] group-hover:text-white transition-colors duration-300">
+                      <FaReact size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">React</h3>
                 </motion.div>
@@ -2422,7 +2509,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiNextdotjs className="w-7 h-7 text-white" />
+                    <span className="text-white transition-colors duration-300">
+                      <SiNextdotjs size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Next.js</h3>
                 </motion.div>
@@ -2435,7 +2524,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiTypescript className="w-7 h-7 text-[#3178C6]" />
+                    <span className="text-[#3178C6] transition-colors duration-300">
+                      <SiTypescript size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">TypeScript</h3>
                 </motion.div>
@@ -2448,7 +2539,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiJavascript className="w-7 h-7 text-[#F7DF1E]" />
+                    <span className="text-[#F7DF1E] transition-colors duration-300">
+                      <SiJavascript size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">JavaScript</h3>
                 </motion.div>
@@ -2461,7 +2554,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiRedux className="w-7 h-7 text-[#764ABC]" />
+                    <span className="text-[#764ABC] transition-colors duration-300">
+                      <SiRedux size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Redux</h3>
                 </motion.div>
@@ -2474,7 +2569,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <FaHtml5 className="w-7 h-7 text-[#E34F26]" />
+                    <span className="text-[#E34F26] group-hover:text-white transition-colors duration-300">
+                      <FaHtml5 size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">HTML5</h3>
                 </motion.div>
@@ -2487,7 +2584,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <FaCss3Alt className="w-7 h-7 text-[#1572B6]" />
+                    <span className="text-[#1572B6] group-hover:text-white transition-colors duration-300">
+                      <FaCss3Alt size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">CSS3</h3>
                 </motion.div>
@@ -2500,7 +2599,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiTailwindcss className="w-7 h-7 text-[#06B6D4]" />
+                    <span className="text-[#06B6D4] transition-colors duration-300">
+                      <SiTailwindcss size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Tailwind</h3>
                 </motion.div>
@@ -2513,7 +2614,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <FaSass className="w-7 h-7 text-[#CC6699]" />
+                    <span className="text-[#CC6699] group-hover:text-white transition-colors duration-300">
+                      <FaSass size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Sass</h3>
                 </motion.div>
@@ -2526,7 +2629,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <FaBootstrap className="w-7 h-7 text-[#7952B3]" />
+                    <span className="text-[#7952B3] group-hover:text-white transition-colors duration-300">
+                      <FaBootstrap size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Bootstrap</h3>
                 </motion.div>
@@ -2539,7 +2644,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiJquery className="w-7 h-7 text-[#0769AD]" />
+                    <span className="text-[#0769AD] group-hover:text-white transition-colors duration-300">
+                      <SiJquery size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">jQuery</h3>
                 </motion.div>
@@ -2552,7 +2659,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <FaGithub className="w-7 h-7 text-white" />
+                    <span className="text-white group-hover:text-accent-purple transition-colors duration-300">
+                      <FaGithub size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">GitHub</h3>
                 </motion.div>
@@ -2576,7 +2685,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiSwagger className="w-7 h-7 text-[#85EA2D]" />
+                    <span className="text-[#85EA2D] group-hover:text-white transition-colors duration-300">
+                      <SiSwagger size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">RESTful APIs</h3>
                 </motion.div>
@@ -2589,7 +2700,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiCodeigniter className="w-7 h-7 text-[#EF4223]" />
+                    <span className="text-[#EF4223] group-hover:text-white transition-colors duration-300">
+                      <SiCodeigniter size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'Design Patterns' : 'أنماط التصميم'}
@@ -2604,7 +2717,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiRedis className="w-7 h-7 text-[#FF4438]" />
+                    <span className="text-[#FF4438] group-hover:text-white transition-colors duration-300">
+                      <SiRedis size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'Redis & Caching' : 'Redis والتخزين المؤقت'}
@@ -2619,7 +2734,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <FaHtml5 className="w-7 h-7 text-[#E34F26]" />
+                    <span className="text-[#E34F26] group-hover:text-white transition-colors duration-300">
+                      <FaHtml5 size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">HTML5 / CSS3</h3>
                 </motion.div>
@@ -2632,7 +2749,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiJavascript className="w-7 h-7 text-[#F7DF1E]" />
+                    <span className="text-[#F7DF1E] group-hover:text-white transition-colors duration-300">
+                      <SiJavascript size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">JavaScript</h3>
                 </motion.div>
@@ -2645,7 +2764,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiPhp className="w-7 h-7 text-[#777BB4]" />
+                    <span className="text-[#777BB4] group-hover:text-white transition-colors duration-300">
+                      <SiPhp size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">PHP</h3>
                 </motion.div>
@@ -2658,7 +2779,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <FaReact className="w-7 h-7 text-[#61DAFB]" />
+                    <span className="text-[#61DAFB] group-hover:text-white transition-colors duration-300">
+                      <FaReact size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">
                     {language === 'en' ? 'React / Next.js' : 'React / Next.js'}
@@ -2673,7 +2796,9 @@ const Home = () => {
                   className="glass-card p-5 rounded-2xl text-center hover:border-accent-purple/50 hover:shadow-xl hover:shadow-accent-purple/20 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent-purple/20 to-accent-blue/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-all duration-300">
-                    <SiNodedotjs className="w-7 h-7 text-[#339933]" />
+                    <span className="text-[#339933] group-hover:text-white transition-colors duration-300">
+                      <SiNodedotjs size={28} />
+                    </span>
                   </div>
                   <h3 className="text-base font-bold text-white mb-2 group-hover:text-accent-purple transition-colors duration-300">Node.js / Express</h3>
                 </motion.div>
@@ -3933,212 +4058,196 @@ const Home = () => {
 
 
 
+
       {/* Contact Section */}
-      <section id="contact" className="py-32 px-6 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <span className="text-accent-purple font-bold uppercase tracking-[0.3em] text-[10px]">
-              {language === 'en' ? "LET'S WORK TOGETHER" : "لنعمل معاً"}
+      <section id="contact" className="py-24 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-10 text-center">
+            <span className="inline-flex items-center rounded-full bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.3em] text-accent-purple">
+              {language === "en" ? "Contact" : "تواصل"}
             </span>
-            <h2 className="text-5xl md:text-6xl font-bold mt-4 mb-6 tracking-tight">
-              {language === 'en' ? "Get In Touch" : "تواصل معي"}
+            <h2 className="mt-6 text-4xl md:text-5xl font-bold tracking-tight text-white">
+              {language === "en" ? "Let’s Talk" : "هيا نتحدث"}
             </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-accent-purple to-accent-blue mx-auto rounded-full" />
-            <p className="text-white/50 max-w-2xl mx-auto mt-6">
-              {language === 'en'
-                ? "Have a project in mind or looking for a skilled developer? I'm always open to new opportunities and collaborations."
-                : "هل لديك مشروع في ذهنك أو تبحث عن مطور ماهر؟ أنا دائماً منفتحة على الفرص الجديدة والتعاون."}
+            <p className="mt-4 text-white/60 max-w-2xl mx-auto text-base md:text-lg">
+              {language === "en"
+                ? "Have a project idea or want to collaborate? Send a note and I’ll get back to you soon."
+                : "هل لديك فكرة مشروع أو تريد التعاون؟ أرسل رسالة وسأرد عليك قريباً."}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left Side - Contact Form */}
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] items-start">
             <motion.div
-              initial={{ opacity: 0, x: language === 'ar' ? 30 : -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              whileHover={{ y: -5, boxShadow: "0 20px 40px -15px rgba(139,92,246,0.3)" }}
-              className="glass-card p-8 rounded-2xl border-white/5 transition-all duration-300"
+              className="rounded-[2rem] bg-gradient-to-br from-purple-800 via-violet-900 to-fuchsia-900 p-8 shadow-[0_30px_80px_rgba(139,92,246,0.18)] border border-white/10"
             >
-              <h3 className="text-2xl font-bold text-white mb-6">
-                {language === 'en' ? "Let's discuss your project" : "دعنا نناقش مشروعك"}
-              </h3>
-
-              <form className="space-y-5" action="https://formspree.io/f/your-form-id" method="POST">
-                {/* Your Name Field */}
+              <div className="rounded-[1.75rem] bg-white/5 p-8 h-full flex flex-col justify-between">
                 <div>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder={language === 'en' ? "Your Name" : "الاسم"}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/30 text-sm"
-                    required
-                  />
+                  <p className="text-sm uppercase tracking-[0.3em] text-white/60 mb-3">
+                    {language === "en" ? "Info Panel" : "لوحة المعلومات"}
+                  </p>
+                  <h3 className="text-3xl font-bold text-white">
+                    {language === "en" ? "Let’s Talk" : "دعنا نتحدث"}
+                  </h3>
+                  <p className="mt-4 text-white/70 leading-relaxed">
+                    {language === "en"
+                      ? "Reach out for collaborations, freelance work, or just to say hello."
+                      : "تواصل من أجل التعاون أو العمل الحر أو فقط لإلقاء التحية."}
+                  </p>
                 </div>
 
-                {/* Your Email Field */}
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder={language === 'en' ? "Your Email" : "البريد الإلكتروني"}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/30 text-sm"
-                    required
-                  />
+                <div className="mt-10 grid gap-4">
+                  <a href="mailto:esraahamaza299@gmail.com" className="group flex items-start gap-4 rounded-3xl border border-white/10 bg-white/5 p-5 transition-all duration-300 hover:border-accent-purple/50 hover:bg-white/10">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-accent-purple">
+                      <MdEmail size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.24em] text-white/60">
+                        {language === "en" ? "Email" : "البريد الإلكتروني"}
+                      </p>
+                      <p className="mt-2 text-white text-sm">esraahamaza299@gmail.com</p>
+                    </div>
+                  </a>
+
+                  <a
+                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                      language === "en"
+                        ? "Hello! I would like to connect from your portfolio."
+                        : "مرحبًا! أود التواصل من خلال نموذج المحفظة."
+                    )}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex items-start gap-4 rounded-3xl border border-white/10 bg-white/5 p-5 transition-all duration-300 hover:border-green-400/50 hover:bg-white/10"
+                  >
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-500/10 text-green-300">
+                      <FaWhatsapp size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.24em] text-white/60">
+                        {language === "en" ? "WhatsApp" : "واتساب"}
+                      </p>
+                      <p className="mt-2 text-white text-sm">+20 101 284 7580</p>
+                    </div>
+                  </a>
+
+                  <a href="tel:+201012847580" className="group flex items-start gap-4 rounded-3xl border border-white/10 bg-white/5 p-5 transition-all duration-300 hover:border-green-400/50 hover:bg-white/10">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950/20 text-green-300">
+                      <Phone size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.24em] text-white/60">
+                        {language === "en" ? "Phone" : "الهاتف"}
+                      </p>
+                      <p className="mt-2 text-white text-sm">+20 101 284 7580</p>
+                    </div>
+                  </a>
+
+                  <div className="group flex items-start gap-4 rounded-3xl border border-white/10 bg-white/5 p-5 transition-all duration-300 hover:border-accent-purple/50 hover:bg-white/10">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-accent-purple">
+                      <MapPin size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.24em] text-white/60">
+                        {language === "en" ? "Location" : "الموقع"}
+                      </p>
+                      <p className="mt-2 text-white text-sm">Cairo, Egypt</p>
+                    </div>
+                  </div>
                 </div>
-
-                {/* Subject Field */}
-                <div>
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder={language === 'en' ? "Subject" : "الموضوع"}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/30 text-sm"
-                    required
-                  />
-                </div>
-
-                {/* Your Message Field */}
-                <div>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    placeholder={language === 'en' ? "Your Message" : "رسالتك"}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3 focus:outline-none focus:border-accent-purple transition-all text-white/80 placeholder:text-white/30 text-sm resize-none"
-                    required
-                  />
-                </div>
-
-                {/* Send via WhatsApp Button */}
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(34,197,94,0.5)" }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full py-3.5 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold uppercase tracking-[0.2em] text-[11px] rounded-xl transition-all duration-300 mb-3"
-                >
-                  {language === 'en' ? "Send via WhatsApp" : "إرسال عبر واتساب"}
-                </motion.button>
-
-                {/* Send via Email Button */}
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(139,92,246,0.5)" }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full py-3.5 bg-gradient-to-r from-accent-purple to-accent-blue text-white font-bold uppercase tracking-[0.2em] text-[11px] rounded-xl transition-all duration-300"
-                >
-                  {language === 'en' ? "Send via Email" : "إرسال عبر البريد"}
-                </motion.button>
-              </form>
+              </div>
             </motion.div>
 
-            {/* Right Side - Contact Info */}
             <motion.div
-              initial={{ opacity: 0, x: language === 'ar' ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="rounded-[2rem] bg-slate-950/95 border border-white/10 p-8 shadow-[0_20px_60px_rgba(15,23,42,0.55)]"
             >
-              {/* Email */}
-              <motion.a
-                href="mailto:esraahamaza299@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02, x: language === 'ar' ? -5 : 5, boxShadow: "0 10px 30px -10px rgba(139,92,246,0.3)" }}
-                className="flex items-center gap-4 p-4 rounded-xl glass-card hover:border-accent-purple/30 transition-all duration-300 group cursor-pointer"
-              >
-                <div className="w-12 h-12 rounded-full bg-accent-purple/10 flex items-center justify-center group-hover:bg-accent-purple/20 transition-all">
-                  <Mail size={20} className="text-accent-purple" />
-                </div>
-                <div>
-                  <p className="text-white/40 text-[10px] uppercase tracking-wider mb-0.5">
-                    {language === 'en' ? "Email" : "البريد الإلكتروني"}
-                  </p>
-                  <p className="text-white/80 group-hover:text-accent-purple transition-colors text-sm">
-                    esraahamaza299@gmail.com
-                  </p>
-                </div>
-              </motion.a>
+              <div className="mb-8">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-2 text-xs uppercase tracking-[0.3em] text-accent-purple">
+                  <Send size={14} />
+                  {language === "en" ? "Send Message" : "أرسل رسالة"}
+                </span>
+                <h3 className="mt-6 text-3xl font-bold text-white">
+                  {language === "en" ? "Message Me" : "أرسل رسالة لي"}
+                </h3>
+                <p className="mt-3 text-white/60 leading-relaxed">
+                  {language === "en"
+                    ? "Use the form to send a quick message, and I’ll respond as soon as possible."
+                    : "استخدم النموذج لإرسال رسالة سريعة وسأرد عليك في أسرع وقت ممكن."}
+                </p>
+              </div>
 
-              {/* Phone/WhatsApp */}
-              <motion.a
-                href="https://wa.me/201012847580"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02, x: language === 'ar' ? -5 : 5, boxShadow: "0 10px 30px -10px rgba(34,197,94,0.3)" }}
-                className="flex items-center gap-4 p-4 rounded-xl glass-card hover:border-green-500/30 transition-all duration-300 group cursor-pointer"
-              >
-                <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-all">
-                  <Phone size={20} className="text-green-400" />
-                </div>
-                <div>
-                  <p className="text-white/40 text-[10px] uppercase tracking-wider mb-0.5">
-                    {language === 'en' ? "Phone/WhatsApp" : "واتساب"}
-                  </p>
-                  <p className="text-white/80 group-hover:text-green-400 transition-colors text-sm">
-                    01012847580
-                  </p>
-                </div>
-              </motion.a>
+              <form onSubmit={handleContactSubmit} className="space-y-5">
+                <label className="block text-sm text-white/70">
+                  {language === "en" ? "Name" : "الاسم"}
+                  <input
+                    type="text"
+                    value={contactName}
+                    onChange={(e) => setContactName(e.target.value)}
+                    placeholder={language === "en" ? "Your Name" : "الاسم"}
+                    className="mt-3 w-full rounded-3xl border border-sky-400/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none transition-all duration-300 focus:border-sky-400 focus:bg-sky-500/10"
+                  />
+                </label>
 
+                <label className="block text-sm text-white/70">
+                  {language === "en" ? "Email" : "البريد الإلكتروني"}
+                  <input
+                    type="email"
+                    value={contactEmail}
+                    onChange={(e) => setContactEmail(e.target.value)}
+                    placeholder={language === "en" ? "Your Email" : "البريد الإلكتروني"}
+                    className="mt-3 w-full rounded-3xl border border-sky-400/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none transition-all duration-300 focus:border-sky-400 focus:bg-sky-500/10"
+                  />
+                </label>
 
+                <label className="block text-sm text-white/70">
+                  {language === "en" ? "Message" : "الرسالة"}
+                  <textarea
+                    value={contactMessage}
+                    onChange={(e) => setContactMessage(e.target.value)}
+                    placeholder={language === "en" ? "Your Message" : "رسالتك"}
+                    rows={6}
+                    className="mt-3 w-full rounded-3xl border border-sky-400/20 bg-white/5 px-5 py-4 text-white placeholder:text-white/40 outline-none transition-all duration-300 focus:border-sky-400 focus:bg-sky-500/10 resize-none"
+                  />
+                </label>
 
-              {/* WhatsApp Info Message */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                whileHover={{ scale: 1.02, boxShadow: "0 10px 30px -10px rgba(34,197,94,0.2)" }}
-                className="glass-card p-4 rounded-xl border border-green-500/20 bg-green-500/5 transition-all duration-300"
-              >
-                <div className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <div>
-                    <p className="text-white/60 text-xs leading-relaxed">
-                      {language === 'en'
-                        ? "WhatsApp opens with your message pre-filled & ready to send."
-                        : "يتم فتح واتساب مع رسالتك المعدة مسبقاً وجاهزة للإرسال."}
+                {contactStatus === "error" && contactErrors.length > 0 && (
+                  <div className="rounded-3xl border border-red-500/20 bg-red-500/10 p-4 text-red-200">
+                    <p className="text-sm font-semibold">
+                      {language === "en" ? "Fix the following:" : "يرجى تصحيح الأخطاء التالية:"}
                     </p>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-red-100">
+                      {contactErrors.map((error) => (
+                        <li key={error}>{error}</li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-              </motion.div>
+                )}
 
-              {/* Email Info Message */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                whileHover={{ scale: 1.02, boxShadow: "0 10px 30px -10px rgba(139,92,246,0.2)" }}
-                className="glass-card p-4 rounded-xl border border-accent-purple/20 bg-accent-purple/5 transition-all duration-300"
-              >
-                <div className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-accent-purple mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <div>
-                    <p className="text-white/60 text-xs leading-relaxed">
-                      {language === 'en'
-                        ? "Email opens Gmail compose in a new tab."
-                        : "يتم فتح البريد الإلكتروني في علامة تبويب جديدة."}
-                    </p>
+                {contactStatus === "success" && (
+                  <div className="rounded-3xl border border-emerald-500/20 bg-emerald-500/10 p-4 text-emerald-100">
+                    {language === "en"
+                      ? "Message sent! I’ll review it and reply shortly."
+                      : "تم إرسال الرسالة! سأراجعها وأرد عليك قريباً."}
                   </div>
-                </div>
-              </motion.div>
+                )}
 
-
+                <button
+                  type="submit"
+                  className="inline-flex w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-accent-purple to-accent-blue px-6 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-[0_20px_50px_rgba(139,92,246,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_25px_70px_rgba(139,92,246,0.35)]"
+                >
+                  <Send size={16} />
+                  {language === "en" ? "Send Message" : "إرسال الرسالة"}
+                </button>
+              </form>
             </motion.div>
           </div>
         </div>
-
-        {/* Decorative Background Elements */}
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent-purple/20 rounded-full blur-[100px] -z-10" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-blue/20 rounded-full blur-[100px] -z-10" />
       </section>
 
       {/* Project Modal */}
@@ -4160,22 +4269,9 @@ const Home = () => {
           />
         )}
       </AnimatePresence>
-      <AnimatePresence>
-        {selectedProject && (
-          <ProjectModal
-            project={selectedProject}
-            onClose={() => setSelectedProject(null)}
-          />
-        )}
-        {selectedFeatureProject && (
-          <FeatureModal
-            project={selectedFeatureProject}
-            onClose={() => setSelectedFeatureProject(null)}
-          />
-        )}
-      </AnimatePresence>
     </main>
   );
 };
 
 export default Home;
+
